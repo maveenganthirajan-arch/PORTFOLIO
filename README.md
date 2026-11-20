@@ -13,6 +13,7 @@
 ## 🚀 5 Featured Projects (From Resume)
 
 ### 1. 🏠 Real Estate Price Prediction
+- **Repository**: [github.com/maveenganthirajan-arch](https://github.com/maveenganthirajan-arch)
 - **Tech Stack**: `Python`, `SQL`, `Regression`, `Geospatial Analysis`, `SHAP`, `Streamlit`
 - **Highlights**:
   - Engineered regression models in Python to accurately predict property prices from housing and location data queried in SQL.
@@ -21,6 +22,7 @@
   - Launched an interactive Streamlit web app that delivers instant price estimates to users.
 
 ### 2. 👥 HR Analytics Dashboard (Power BI)
+- **Repository**: [HR-Analytics-Dashboard-Power-BI](https://github.com/maveenganthirajan-arch/HR-Analytics-Dashboard-Power-BI/tree/main/HR-Analytics-Dashboard-main)
 - **Tech Stack**: `Power BI`, `Excel`, `Power Query`, `DAX`
 - **Highlights**:
   - Designed an interactive HR dashboard that gives leaders a clear, real-time view of workforce performance.
@@ -28,6 +30,7 @@
   - Crafted custom DAX measures and KPIs to power dynamic, drill-down reporting.
 
 ### 3. 📈 HR Analytics Dashboard (Advanced Excel)
+- **Repository**: [hr-analytics-dashboard-excel](https://github.com/maveenganthirajan-arch/hr-analytics-dashboard-excel)
 - **Tech Stack**: `Excel`, `PivotTables`, `Charts`, `KPI Metrics`
 - **Highlights**:
   - Analysed employee attrition, attendance patterns and salary distribution to reveal what drives retention.
@@ -35,12 +38,14 @@
   - Translated findings into clear insights on retention and pay trends for confident HR decisions.
 
 ### 4. 🏥 Hospital Patient Records Analysis
+- **Repository**: [hospital-patient-records-analysis-tableau](https://github.com/maveenganthirajan-arch/hospital-patient-records-analysis-tableau/tree/main/Hospital-Patient-Records-Analysis-main)
 - **Tech Stack**: `Tableau`, `Healthcare Analytics`, `Data Modeling`
 - **Highlights**:
   - Explored hospital patient records to uncover trends in admissions, demographics and care outcomes.
   - Visualised key healthcare KPIs in an intuitive Tableau dashboard for faster operational decisions.
 
 ### 5. 🏦 Banking Management System
+- **Repository**: [banking-management-system-mysql](https://github.com/maveenganthirajan-arch/banking-management-system-mysql)
 - **Tech Stack**: `MySQL`, `Database Design`, `SQL Queries`, `Schema Optimization`
 - **Highlights**:
   - Architected a robust relational database covering customers, accounts and transactions.

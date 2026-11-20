@@ -85,7 +85,10 @@
           deliverables: "Streamlit interactive deployment allowing prospective buyers to enter parameters and obtain instant valuations with visual explainability cards.",
           impact: "Achieved high predictive accuracy (R² > 0.88) while reducing valuation turnaround time from days to sub-second automated scoring."
         },
-        github: "https://github.com/maveenganthirajan-arch"
+        github: "https://github.com/maveenganthirajan-arch",
+        demoLink: "#playground",
+        liveLabel: "Live ML Demo ↗",
+        liveIcon: "fa-solid fa-sliders"
       },
       {
         id: "hr-power-bi",
@@ -107,7 +110,10 @@
           deliverables: "Interactive 4-page Power BI report featuring drill-through pages, executive summary cards, demographic tree maps, and retention risk matrix.",
           impact: "Enabled leadership to pinpoint voluntary attrition drivers across tenures, resulting in proactive retention strategies for high-performing cohorts."
         },
-        github: "https://github.com/maveenganthirajan-arch"
+        github: "https://github.com/maveenganthirajan-arch/HR-Analytics-Dashboard-Power-BI/tree/main/HR-Analytics-Dashboard-main",
+        demoLink: "https://github.com/maveenganthirajan-arch/HR-Analytics-Dashboard-Power-BI/tree/main/HR-Analytics-Dashboard-main",
+        liveLabel: "Live Power BI ↗",
+        liveIcon: "fa-solid fa-chart-pie"
       },
       {
         id: "hr-advanced-excel",
@@ -129,7 +135,10 @@
           deliverables: "Fully automated, interactive Excel workbook equipped with slicers, KPI gauge cards, salary distribution histograms, and automated monthly summary sheets.",
           impact: "Streamlined monthly workforce reviews from 6 manual hours to instant slicer-driven executive summaries."
         },
-        github: "https://github.com/maveenganthirajan-arch"
+        github: "https://github.com/maveenganthirajan-arch/hr-analytics-dashboard-excel",
+        demoLink: "https://github.com/maveenganthirajan-arch/hr-analytics-dashboard-excel",
+        liveLabel: "Live Excel ↗",
+        liveIcon: "fa-solid fa-file-excel"
       },
       {
         id: "hospital-patient-records",
@@ -150,7 +159,10 @@
           deliverables: "High-impact Tableau workbook with interactive geo-mapping, bed occupancy gauges, age-bracket cohort analysis, and physician caseload trackers.",
           impact: "Provided clinical directors with actionable operational KPIs, helping optimize ICU bed turnover and reduce non-urgent admission wait times."
         },
-        github: "https://github.com/maveenganthirajan-arch"
+        github: "https://github.com/maveenganthirajan-arch/hospital-patient-records-analysis-tableau/tree/main/Hospital-Patient-Records-Analysis-main",
+        demoLink: "https://github.com/maveenganthirajan-arch/hospital-patient-records-analysis-tableau/tree/main/Hospital-Patient-Records-Analysis-main",
+        liveLabel: "Live Tableau ↗",
+        liveIcon: "fa-solid fa-hospital-user"
       },
       {
         id: "banking-management-system",
@@ -172,7 +184,9 @@
           impact: "Guaranteed data integrity with zero orphan records and query execution under 25ms on large transaction batches."
         },
         github: "https://github.com/maveenganthirajan-arch/banking-management-system-mysql",
-        liveSqlRepo: "https://github.com/maveenganthirajan-arch/banking-management-system-mysql"
+        demoLink: "https://github.com/maveenganthirajan-arch/banking-management-system-mysql",
+        liveLabel: "Live MySQL ↗",
+        liveIcon: "fa-solid fa-database"
       }
     ];
 
@@ -645,29 +659,17 @@
                         onClick={() => onOpenModal(project)} 
                         className="btn btn-sm btn-cyan flex-grow-1"
                       >
-                        <i className="fa-solid fa-circle-info"></i> Project Deep-Dive
+                        <i className="fa-solid fa-circle-info"></i> Deep-Dive
                       </button>
-                      {project.id === 'banking-management-system' ? (
-                        <a 
-                          href={project.github} 
-                          target="_blank" 
-                          rel="noreferrer" 
-                          className="btn btn-sm btn-primary d-inline-flex align-items-center gap-1 px-3" 
-                          title="Open MySQL GitHub Repository"
-                        >
-                          <i className="fa-solid fa-database"></i> Live MySQL ↗
-                        </a>
-                      ) : (
-                        <a 
-                          href={project.github} 
-                          target="_blank" 
-                          rel="noreferrer" 
-                          className="btn btn-sm btn-outline-glass" 
-                          title="View GitHub Repository"
-                        >
-                          <i className="fa-brands fa-github"></i>
-                        </a>
-                      )}
+                      <a 
+                        href={project.demoLink} 
+                        target={project.demoLink.startsWith('#') ? '_self' : '_blank'} 
+                        rel="noreferrer" 
+                        className="btn btn-sm btn-primary d-inline-flex align-items-center gap-1 px-3 fw-bold" 
+                        title={`Open ${project.liveLabel}`}
+                      >
+                        <i className={project.liveIcon}></i> {project.liveLabel}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -998,6 +1000,26 @@
                                   : "Healthy retention profile. High job satisfaction and stable tenure create a strong organizational anchor.")
                           }
                         </div>
+
+                        {/* Live Demo Buttons for HR */}
+                        <div className="d-flex flex-wrap gap-2 mt-3">
+                          <a 
+                            href="https://github.com/maveenganthirajan-arch/HR-Analytics-Dashboard-Power-BI/tree/main/HR-Analytics-Dashboard-main" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            className="btn btn-sm btn-primary flex-fill fw-bold"
+                          >
+                            <i className="fa-solid fa-chart-pie me-1"></i> Live Power BI Repo ↗
+                          </a>
+                          <a 
+                            href="https://github.com/maveenganthirajan-arch/hr-analytics-dashboard-excel" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            className="btn btn-sm btn-outline-success flex-fill fw-bold"
+                          >
+                            <i className="fa-solid fa-file-excel me-1"></i> Live Excel Model ↗
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1055,6 +1077,46 @@
                         className="btn btn-sm btn-primary fw-bold"
                       >
                         <i className="fa-brands fa-github me-1"></i> Open MySQL Repo in GitHub ↗
+                      </a>
+                    </div>
+                  )}
+
+                  {selectedQueryKey === 'attrition' && (
+                    <div className="alert alert-warning bg-warning-subtle border-warning-subtle d-flex flex-wrap align-items-center justify-content-between py-2 px-3 rounded-3 mb-3">
+                      <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0">
+                        <i className="fa-solid fa-chart-pie text-warning fs-5"></i>
+                        <div>
+                          <span className="fw-bold text-dark">Live HR Analytics Power BI & Excel Source:</span>
+                          <span className="text-muted ms-1 small">Star Schema, DAX & Power Query Pipeline</span>
+                        </div>
+                      </div>
+                      <a 
+                        href="https://github.com/maveenganthirajan-arch/HR-Analytics-Dashboard-Power-BI/tree/main/HR-Analytics-Dashboard-main" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="btn btn-sm btn-primary fw-bold"
+                      >
+                        <i className="fa-brands fa-github me-1"></i> Open Power BI Repo ↗
+                      </a>
+                    </div>
+                  )}
+
+                  {selectedQueryKey === 'hospital' && (
+                    <div className="alert alert-info bg-info-subtle border-info-subtle d-flex flex-wrap align-items-center justify-content-between py-2 px-3 rounded-3 mb-3">
+                      <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0">
+                        <i className="fa-solid fa-hospital-user text-info fs-5"></i>
+                        <div>
+                          <span className="fw-bold text-dark">Live Hospital Tableau Project Source:</span>
+                          <span className="text-muted ms-1 small">Inpatient Admissions & Length-of-Stay Analysis</span>
+                        </div>
+                      </div>
+                      <a 
+                        href="https://github.com/maveenganthirajan-arch/hospital-patient-records-analysis-tableau/tree/main/Hospital-Patient-Records-Analysis-main" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="btn btn-sm btn-primary fw-bold"
+                      >
+                        <i className="fa-brands fa-github me-1"></i> Open Tableau Repo ↗
                       </a>
                     </div>
                   )}
@@ -1509,13 +1571,13 @@
 
               <div className="modal-footer border-top">
                 <a 
-                  href={project.github} 
-                  target="_blank" 
+                  href={project.demoLink || project.github} 
+                  target={project.demoLink && project.demoLink.startsWith('#') ? '_self' : '_blank'} 
                   rel="noreferrer" 
-                  className={`btn ${project.id === 'banking-management-system' ? 'btn-primary' : 'btn-outline-glass'}`}
+                  className="btn btn-primary fw-bold"
                 >
-                  <i className="fa-brands fa-github me-1"></i> 
-                  {project.id === 'banking-management-system' ? 'Open Banking MySQL Repo ↗' : 'GitHub Repository ↗'}
+                  <i className={`${project.liveIcon || 'fa-brands fa-github'} me-1`}></i> 
+                  {project.liveLabel || 'Open GitHub Repo ↗'}
                 </a>
                 <button type="button" className="btn btn-cyan" onClick={onClose}>
                   Close
