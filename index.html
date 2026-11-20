@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maveen G | Data Analyst & BI Specialist Portfolio</title>
+  <meta name="description" content="Portfolio of Maveen G - Results-driven Data Analyst specializing in Power BI, Tableau, SQL, Python, and Predictive Analytics.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- React 18 & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel Standalone for JSX compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- Decorative Backgrounds -->
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <!-- React Root Container -->
+  <div id="root"></div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- React Application Code -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- DATA STORE (Exact from Resume) ---
+    const CANDIDATE_INFO = {
+      name: "Maveen G",
+      title: "Data Analyst | Business Intelligence Specialist",
+      tagline: "Turning raw, complex data into intuitive executive dashboards, robust database schemas, and decision-ready predictive insights.",
+      location: "Salem, Tamil Nadu, India",
+      phone: "+91 8883099356",
+      phoneClean: "+918883099356",
+      email: "maveenganthirajan@gmail.com",
+      github: "https://github.com/maveenganthirajan-arch",
+      leetcode: "https://leetcode.com/u/gqSuIZqIeW",
+      resumePdf: "assets/Maveen_G_Data_Analyst_Resume.pdf",
+      profileImg: "assets/maveen.jpg",
+      summary: "Results-driven Data Analyst who turns raw data into compelling dashboards and decision-ready insights. Proven hands-on strength across the complete analytics lifecycle: SQL database design, Excel modelling, interactive Power BI and Tableau dashboards, and predictive machine learning in Python, demonstrated through five end-to-end projects in HR, healthcare, banking and real estate. A natural data storyteller, eager to deliver measurable business impact as a Data Analyst / BI Analyst."
+    };
+
+    const PROJECTS = [
+      {
+        id: "real-estate-prediction",
+        title: "Real Estate Price Prediction",
+        category: "Machine Learning & Python",
+        domain: "Real Estate",
+        tech: ["Python", "SQL", "Regression", "Geospatial Analysis", "SHAP", "Streamlit"],
+        icon: "fa-solid fa-house-chimney-crack",
+        color: "#00f2fe",
+        summary: "Predictive real estate valuation platform with machine learning explainability and geospatial market clustering.",
+        highlights: [
+          "Engineered regression models in Python to accurately predict property prices from housing and location data queried in SQL.",
+          "Leveraged geospatial analysis to uncover how location drives property value.",
+          "Applied SHAP explainability to make predictions transparent and pinpoint the key price drivers.",
+          "Launched an interactive Streamlit web app that delivers instant price estimates to users."
+        ],
+        deepDive: {
+          problem: "Real estate valuations often suffer from subjective bias and static pricing formulas that fail to account for neighborhood geospatial variance and localized amenities.",
+          methodology: "Extracted and transformed multi-factor property datasets using SQL queries. Cleaned outliers, performed coordinate-based spatial clustering, trained gradient boosted regression models, and computed SHAP values to explain feature influence.",
+          deliverables: "Streamlit interactive deployment allowing prospective buyers to enter parameters and obtain instant valuations with visual explainability cards.",
+          impact: "Achieved high predictive accuracy (R² > 0.88) while reducing valuation turnaround time from days to sub-second automated scoring."
+        },
+        github: "https://github.com/maveenganthirajan-arch"
+      },
+      {
+        id: "hr-power-bi",
+        title: "HR Analytics Dashboard (Power BI)",
+        category: "Power BI & Tableau",
+        domain: "Human Resources",
+        tech: ["Power BI", "Excel", "Power Query", "DAX"],
+        icon: "fa-solid fa-chart-pie",
+        color: "#f59e0b",
+        summary: "Executive-ready BI dashboard tracking workforce health, attrition risk, performance tiers, and diversity metrics.",
+        highlights: [
+          "Designed an interactive HR dashboard that gives leaders a clear, real-time view of workforce performance.",
+          "Streamlined messy employee data into analysis-ready form using Power Query.",
+          "Crafted custom DAX measures and KPIs to power dynamic, drill-down reporting."
+        ],
+        deepDive: {
+          problem: "HR leadership lacked unified visibility across employee retention, cross-department attrition hotspots, and compensation equity, leading to reactive hiring.",
+          methodology: "Engineered automated data pipelines in Power Query to clean and normalize multi-year HR records. Built star schema data models and authored advanced DAX measures (running totals, YoY attrition rate, compensation ratio).",
+          deliverables: "Interactive 4-page Power BI report featuring drill-through pages, executive summary cards, demographic tree maps, and retention risk matrix.",
+          impact: "Enabled leadership to pinpoint voluntary attrition drivers across tenures, resulting in proactive retention strategies for high-performing cohorts."
+        },
+        github: "https://github.com/maveenganthirajan-arch"
+      },
+      {
+        id: "hr-advanced-excel",
+        title: "HR Analytics Dashboard (Advanced Excel)",
+        category: "Advanced Excel",
+        domain: "Human Resources",
+        tech: ["Excel", "PivotTables", "Charts", "KPI Metrics"],
+        icon: "fa-solid fa-file-excel",
+        color: "#10b981",
+        summary: "Dynamic spreadsheet analytics system uncovering employee attrition trends, attendance patterns, and salary distributions.",
+        highlights: [
+          "Analysed employee attrition, attendance patterns and salary distribution to reveal what drives retention.",
+          "Developed PivotTables, charts and KPI metrics into a polished, interactive Excel dashboard.",
+          "Translated findings into clear insights on retention and pay trends for confident HR decisions."
+        ],
+        deepDive: {
+          problem: "Mid-level managers needed a lightweight, standalone reporting workbook that does not depend on cloud BI licenses to audit departmental attendance and pay parity.",
+          methodology: "Employed advanced Excel formulas (XLOOKUP, INDEX/MATCH, nested IFs), dynamic calculated PivotTables, slicer synchronization, and conditional formatting rules.",
+          deliverables: "Fully automated, interactive Excel workbook equipped with slicers, KPI gauge cards, salary distribution histograms, and automated monthly summary sheets.",
+          impact: "Streamlined monthly workforce reviews from 6 manual hours to instant slicer-driven executive summaries."
+        },
+        github: "https://github.com/maveenganthirajan-arch"
+      },
+      {
+        id: "hospital-patient-records",
+        title: "Hospital Patient Records Analysis",
+        category: "Power BI & Tableau",
+        domain: "Healthcare",
+        tech: ["Tableau", "Healthcare Analytics", "Data Modeling"],
+        icon: "fa-solid fa-hospital-user",
+        color: "#8b5cf6",
+        summary: "Clinical and operational Tableau dashboard visualizing patient admissions, demographic distributions, and length-of-stay.",
+        highlights: [
+          "Explored hospital patient records to uncover trends in admissions, demographics and care outcomes.",
+          "Visualised key healthcare KPIs in an intuitive Tableau dashboard for faster operational decisions."
+        ],
+        deepDive: {
+          problem: "Hospital administrators faced resource bottlenecks due to unpredicted patient admission surges and varying department lengths-of-stay (LOS).",
+          methodology: "Aggregated anonymized inpatient admission logs, classified primary diagnostic groups, computed 30-day readmission ratios, and created Tableau calculated fields.",
+          deliverables: "High-impact Tableau workbook with interactive geo-mapping, bed occupancy gauges, age-bracket cohort analysis, and physician caseload trackers.",
+          impact: "Provided clinical directors with actionable operational KPIs, helping optimize ICU bed turnover and reduce non-urgent admission wait times."
+        },
+        github: "https://github.com/maveenganthirajan-arch"
+      },
+      {
+        id: "banking-management-system",
+        title: "Banking Management System",
+        category: "SQL & Databases",
+        domain: "Banking & Finance",
+        tech: ["MySQL", "Database Design", "SQL Queries", "Schema Optimization"],
+        icon: "fa-solid fa-building-columns",
+        color: "#38bdf8",
+        summary: "Scalable relational database architecture powering branch accounts, transaction ledgers, and audit-ready reporting.",
+        highlights: [
+          "Architected a robust relational database covering customers, accounts and transactions.",
+          "Wrote efficient SQL queries to power everyday banking operations and reporting."
+        ],
+        deepDive: {
+          problem: "Financial institutions require ACID-compliant, bulletproof relational schemas capable of handling concurrent transactions while preventing ledger discrepancies.",
+          methodology: "Designed 3NF normalized schema diagrams connecting Customers, Accounts, Branches, Transactions, and Loans. Enforced foreign keys, unique constraints, and check conditions. Created indexing strategies, views for daily balances, and stored procedures for funds transfers.",
+          deliverables: "Complete MySQL database scripts, schema DDL, test seed data, and a suite of 30+ production-grade analytical queries for branch balance reconciliation.",
+          impact: "Guaranteed data integrity with zero orphan records and query execution under 25ms on large transaction batches."
+        },
+        github: "https://github.com/maveenganthirajan-arch"
+      }
+    ];
+
+    const SKILLS_DATA = [
+      {
+        category: "Languages & Databases",
+        icon: "fa-solid fa-database",
+        color: "#00f2fe",
+        skills: ["Python", "SQL", "MySQL"]
+      },
+      {
+        category: "BI & Visualisation",
+        icon: "fa-solid fa-chart-column",
+        color: "#f59e0b",
+        skills: ["Power BI", "Tableau", "Microsoft Excel", "PivotTables", "Charts", "Interactive Dashboards"]
+      },
+      {
+        category: "Data Prep & Modelling",
+        icon: "fa-solid fa-filter",
+        color: "#10b981",
+        skills: ["Power Query", "DAX", "Data Cleaning", "Database Design", "KPI Development", "Data Pipelines"]
+      },
+      {
+        category: "Machine Learning",
+        icon: "fa-solid fa-brain",
+        color: "#8b5cf6",
+        skills: ["Regression Modelling", "Geospatial Analysis", "SHAP (Model Explainability)", "Feature Engineering"]
+      },
+      {
+        category: "Deployment & Tools",
+        icon: "fa-solid fa-screwdriver-wrench",
+        color: "#ec4899",
+        skills: ["Streamlit", "Git", "GitHub", "VS Code", "Jupyter Notebook"]
+      }
+    ];
+
+    const EDUCATION_DATA = [
+      {
+        degree: "B.E. Computer Science and Engineering",
+        institution: "Kongu Engineering College, Erode, Tamil Nadu",
+        period: "2022 – 2026",
+        grade: "CGPA: 7.41",
+        badge: "Undergraduate Degree",
+        description: "Specializing in Data Engineering, Relational Database Systems, Machine Learning, and Algorithm Optimization."
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC - Class XII)",
+        institution: "Sri Amman Matric Higher Secondary School",
+        period: "Completed",
+        grade: "Percentage: 91.6%",
+        badge: "Academic Distinction",
+        description: "Strong mathematical and analytical foundation with top marks in Mathematics and Computer Science."
+      },
+      {
+        degree: "Secondary School Leaving Certificate (SSLC - Class X)",
+        institution: "Sri Amman Matric Higher Secondary School",
+        period: "Completed",
+        grade: "Percentage: 76%",
+        badge: "Secondary Education",
+        description: "Comprehensive core curriculum in Science, Mathematics, and Analytical Reasoning."
+      }
+    ];
+
+    const STRENGTHS_DATA = [
+      {
+        icon: "fa-solid fa-magnifying-glass-chart",
+        title: "Sharp Analytical Problem-Solver",
+        desc: "Possesses an acute eye for detail, verifying data cleanliness, finding anomalies, and deriving accurate root causes."
+      },
+      {
+        icon: "fa-solid fa-bullhorn",
+        title: "Impactful Data Storyteller",
+        desc: "Transforms complex tables, multi-variable regressions, and DAX calculations into intuitive visual stories leaders act on."
+      },
+      {
+        icon: "fa-solid fa-bolt",
+        title: "Fast Adaptability",
+        desc: "Quick to master new domains (HR, Real Estate, Banking, Healthcare) and emerging BI/ML tools with rapid turnaround."
+      },
+      {
+        icon: "fa-solid fa-laptop-code",
+        title: "End-to-End Project Mindset",
+        desc: "Proven self-driven learner with an accessible public portfolio spanning SQL schemas to deployed predictive web apps."
+      }
+    ];
+
+    // --- COMPONENT: NAVBAR ---
+    function Navbar({ theme, toggleTheme }) {
+      const [scrolled, setScrolled] = useState(false);
+
+      useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 40);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+
+      return (
+        <nav className={`navbar navbar-expand-lg fixed-top navbar-custom ${scrolled ? 'shadow-sm' : ''}`}>
+          <div className="container">
+            <a className="navbar-brand text-gradient-cyan" href="#hero">
+              <span className="brand-dot"></span>
+              MAVEEN G
+            </a>
+
+            <div className="d-flex align-items-center gap-2 order-lg-3">
+              <button 
+                onClick={toggleTheme} 
+                className="btn btn-sm btn-outline-glass rounded-pill px-3 py-2"
+                title="Toggle Theme"
+              >
+                <i className={`fa-solid ${theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon text-primary'}`}></i>
+              </button>
+
+              <a 
+                href={CANDIDATE_INFO.resumePdf} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-cyan btn-sm d-none d-sm-inline-flex"
+              >
+                <i className="fa-solid fa-file-arrow-down"></i> Resume PDF
+              </a>
+
+              <button 
+                className="navbar-toggler border-0 text-white" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navMenu"
+              >
+                <i className="fa-solid fa-bars-staggered text-gradient-cyan fs-4"></i>
+              </button>
+            </div>
+
+            <div className="collapse navbar-collapse order-lg-2" id="navMenu">
+              <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link" href="#about">About</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#projects">5 Projects</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#playground">
+                    <span className="badge bg-primary-subtle text-cyan border border-info-subtle me-1">Live</span>
+                    Analytics Demo
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#skills">Skills</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#education">Education</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    // --- COMPONENT: HERO ---
+    function Hero() {
+      const titles = [
+        "Data Analyst",
+        "Business Intelligence Specialist",
+        "Power BI & Tableau Developer",
+        "SQL & Python Analytics Practitioner"
+      ];
+      const [titleIndex, setTitleIndex] = useState(0);
+
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 2800);
+        return () => clearInterval(interval);
+      }, []);
+
+      const fireConfetti = () => {
+        if (window.confetti) {
+          window.confetti({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.7 }
+          });
+        }
+      };
+
+      return (
+        <section id="hero" className="hero-section">
+          <div className="container">
+            <div className="row align-items-center gy-5">
+              <div className="col-lg-7 text-start">
+                <div className="status-badge">
+                  <span className="status-dot"></span>
+                  Open to Data Analyst & BI Roles • Ready for Interview
+                </div>
+
+                <h1 className="hero-title">
+                  Hi, I'm <span className="text-gradient-cyan">Maveen G</span>
+                </h1>
+
+                <div className="hero-subtitle d-flex align-items-center gap-2">
+                  <i className="fa-solid fa-chart-line text-info"></i>
+                  <span>{titles[titleIndex]}</span>
+                </div>
+
+                <p className="hero-description">
+                  {CANDIDATE_INFO.tagline} Experienced across SQL database modeling, 
+                  interactive Power BI & Tableau dashboards, and Python machine learning with 
+                  5 real-world end-to-end projects.
+                </p>
+
+                <div className="d-flex flex-wrap gap-3 align-items-center mb-4">
+                  <a href="#projects" className="btn btn-cyan">
+                    <i className="fa-solid fa-diagram-project"></i> View 5 Projects
+                  </a>
+                  <a 
+                    href={CANDIDATE_INFO.resumePdf} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="btn btn-outline-glass"
+                    onClick={fireConfetti}
+                  >
+                    <i className="fa-solid fa-file-pdf text-danger"></i> Download Resume
+                  </a>
+                  <a href="#contact" className="btn btn-outline-glass">
+                    <i className="fa-regular fa-envelope"></i> Get in Touch
+                  </a>
+                </div>
+
+                <div className="d-flex align-items-center gap-4 pt-2 text-muted">
+                  <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-muted hover-cyan fs-5" title="GitHub">
+                    <i className="fa-brands fa-github"></i>
+                  </a>
+                  <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-muted hover-cyan fs-5" title="LeetCode">
+                    <i className="fa-solid fa-code"></i>
+                  </a>
+                  <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-muted hover-cyan fs-5" title="Email">
+                    <i className="fa-solid fa-envelope"></i>
+                  </a>
+                  <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-muted hover-cyan fs-5" title="Phone">
+                    <i className="fa-solid fa-phone"></i>
+                  </a>
+                  <span className="small border-start ps-3 border-secondary text-dim">
+                    <i className="fa-solid fa-location-dot text-info me-1"></i> Salem, Tamil Nadu
+                  </span>
+                </div>
+              </div>
+
+              <div className="col-lg-5 text-center">
+                <div className="profile-wrapper">
+                  <div className="profile-glow"></div>
+                  <div className="profile-card">
+                    <img 
+                      src={CANDIDATE_INFO.profileImg} 
+                      alt="Maveen G - Data Analyst" 
+                      className="profile-img"
+                    />
+                  </div>
+
+                  {/* Floating Tech Chips */}
+                  <div className="floating-chip top-left">
+                    <i className="fa-solid fa-chart-pie text-warning"></i>
+                    <span>Power BI & Tableau</span>
+                  </div>
+
+                  <div className="floating-chip bottom-right">
+                    <i className="fa-solid fa-terminal text-info"></i>
+                    <span>Python & SQL Pipeline</span>
+                  </div>
+
+                  <div className="floating-chip bottom-left">
+                    <i className="fa-solid fa-certificate text-success"></i>
+                    <span>5 End-to-End Projects</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: METRICS RIBBON ---
+    function MetricsRibbon() {
+      const metrics = [
+        { number: "5", label: "End-to-End Projects", icon: "fa-diagram-project", color: "#00f2fe" },
+        { number: "4", label: "Business Domains (HR, Real Estate, Banking, Health)", icon: "fa-network-wired", color: "#a855f7" },
+        { number: "91.6%", label: "HSC Academic Distinction", icon: "fa-award", color: "#10b981" },
+        { number: "100%", label: "Data Pipeline Mastery (SQL to BI)", icon: "fa-circle-check", color: "#f59e0b" }
+      ];
+
+      return (
+        <div className="container metrics-ribbon">
+          <div className="row g-3">
+            {metrics.map((item, idx) => (
+              <div key={idx} className="col-6 col-lg-3">
+                <div className="glass-card metric-card">
+                  <div className="d-flex align-items-center justify-content-center mb-2">
+                    <i className={`fa-solid ${item.icon} fs-4 me-2`} style={{ color: item.color }}></i>
+                    <div className="metric-number" style={{ color: item.color }}>{item.number}</div>
+                  </div>
+                  <div className="metric-label">{item.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    // --- COMPONENT: ABOUT SECTION ---
+    function AboutSection() {
+      return (
+        <section id="about" className="py-5">
+          <div className="container">
+            <div className="text-center mb-5">
+              <span className="section-tag">Executive Profile</span>
+              <h2 className="section-title">About <span className="text-gradient-cyan">Maveen G</span></h2>
+              <p className="section-desc">
+                {CANDIDATE_INFO.summary}
+              </p>
+            </div>
+
+            <div className="row g-4 mb-5">
+              {STRENGTHS_DATA.map((str, idx) => (
+                <div key={idx} className="col-md-6 col-lg-3">
+                  <div className="glass-card strength-card">
+                    <div className="strength-icon">
+                      <i className={str.icon}></i>
+                    </div>
+                    <div>
+                      <h5 className="fs-6 fw-bold mb-2">{str.title}</h5>
+                      <p className="text-muted small mb-0">{str.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Analytics Philosophy Callout */}
+            <div className="glass-card p-4 p-md-5">
+              <div className="row align-items-center gy-4">
+                <div className="col-lg-8">
+                  <h4 className="fw-bold mb-3">
+                    <i className="fa-solid fa-lightbulb text-warning me-2"></i>
+                    What I Bring to Your Data Team
+                  </h4>
+                  <p className="text-muted mb-0">
+                    In every project—from engineering regression models with <strong>SHAP explainability</strong> in Python, 
+                    authoring dynamic <strong>DAX measures</strong> in Power BI, analyzing healthcare patient flows in <strong>Tableau</strong>, 
+                    to normalizing <strong>MySQL databases</strong>—my focus is delivering clear, high-confidence decision signals 
+                    that executives and domain leaders can trust and execute upon.
+                  </p>
+                </div>
+                <div className="col-lg-4 text-lg-end">
+                  <a href="#playground" className="btn btn-cyan">
+                    <i className="fa-solid fa-sliders"></i> Test Interactive Demos
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: PROJECTS SECTION ---
+    function ProjectsSection({ onOpenModal }) {
+      const [filter, setFilter] = useState("All");
+      const [searchQuery, setSearchQuery] = useState("");
+
+      const categories = ["All", "Power BI & Tableau", "Machine Learning & Python", "SQL & Databases", "Advanced Excel"];
+
+      const filteredProjects = useMemo(() => {
+        return PROJECTS.filter(proj => {
+          const matchCategory = filter === "All" || proj.category === filter;
+          const matchSearch = searchQuery === "" || 
+            proj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            proj.tech.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            proj.domain.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCategory && matchSearch;
+        });
+      }, [filter, searchQuery]);
+
+      return (
+        <section id="projects" className="py-5">
+          <div className="container">
+            <div className="text-center mb-4">
+              <span className="section-tag">Featured Portfolio</span>
+              <h2 className="section-title">5 Core Projects <span className="text-gradient-cyan">From Resume</span></h2>
+              <p className="section-desc">
+                Real-world analytics applications spanning machine learning price prediction, 
+                executive HR intelligence, healthcare clinical records, and relational banking systems.
+              </p>
+            </div>
+
+            {/* Filter Pills & Search */}
+            <div className="row justify-content-center mb-4">
+              <div className="col-md-8 col-lg-6 mb-3">
+                <div className="input-group">
+                  <span className="input-group-text bg-transparent border-secondary text-info">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                  </span>
+                  <input 
+                    type="text" 
+                    className="form-control form-control-custom"
+                    placeholder="Search by tech (e.g. DAX, SHAP, MySQL, Streamlit)..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  {searchQuery && (
+                    <button 
+                      className="btn btn-outline-secondary" 
+                      onClick={() => setSearchQuery("")}
+                    >
+                      <i className="fa-solid fa-xmark"></i>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="col-12">
+                <div className="filter-pill-container">
+                  {categories.map((cat, idx) => (
+                    <button 
+                      key={idx} 
+                      className={`filter-pill ${filter === cat ? 'active' : ''}`}
+                      onClick={() => setFilter(cat)}
+                    >
+                      {cat === "All" ? `All Projects (${PROJECTS.length})` : cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Project Cards Grid */}
+            <div className="row g-4">
+              {filteredProjects.map((project) => (
+                <div key={project.id} className="col-md-6 col-lg-4">
+                  <div className="glass-card project-card">
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <span className="project-category" style={{ color: project.color }}>
+                        {project.domain} • {project.category}
+                      </span>
+                      <i className={`${project.icon} fs-5`} style={{ color: project.color }}></i>
+                    </div>
+
+                    <h3 className="project-title fs-5">{project.title}</h3>
+
+                    <p className="text-muted small mb-3">
+                      {project.summary}
+                    </p>
+
+                    <div className="mb-3">
+                      {project.tech.map((t, idx) => (
+                        <span key={idx} className="tech-tag-badge">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mb-4">
+                      {project.highlights.map((bullet, idx) => (
+                        <div key={idx} className="project-bullet">
+                          {bullet}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="project-footer">
+                      <button 
+                        onClick={() => onOpenModal(project)} 
+                        className="btn btn-sm btn-cyan flex-grow-1"
+                      >
+                        <i className="fa-solid fa-circle-info"></i> Project Deep-Dive
+                      </button>
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="btn btn-sm btn-outline-glass" 
+                        title="View GitHub Repository"
+                      >
+                        <i className="fa-brands fa-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filteredProjects.length === 0 && (
+              <div className="text-center py-5">
+                <p className="text-muted fs-5">No projects match your search criteria.</p>
+                <button className="btn btn-outline-glass" onClick={() => { setFilter("All"); setSearchQuery(""); }}>
+                  Reset Filters
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: INTERACTIVE ANALYTICS PLAYGROUND (React JS Wow-factor) ---
+    function InteractivePlayground() {
+      const [activeTab, setActiveTab] = useState("realestate");
+
+      // Real Estate Playground State
+      const [sqft, setSqft] = useState(1800);
+      const [bhk, setBhk] = useState(3);
+      const [locationTier, setLocationTier] = useState("Prime");
+
+      const estimatedPrice = useMemo(() => {
+        let baseRate = locationTier === "Luxury" ? 9500 : (locationTier === "Prime" ? 7200 : 5000);
+        let bhkFactor = bhk * 250000;
+        let total = (sqft * baseRate) + bhkFactor;
+        return (total / 100000).toFixed(2); // in Lakhs
+      }, [sqft, bhk, locationTier]);
+
+      // HR Attrition Simulator State
+      const [yearsAtCompany, setYearsAtCompany] = useState(3);
+      const [overtime, setOvertime] = useState("Yes");
+      const [satisfaction, setSatisfaction] = useState(2); // 1 to 5
+
+      const attritionRisk = useMemo(() => {
+        let score = 50;
+        if (overtime === "Yes") score += 25;
+        if (satisfaction <= 2) score += 25;
+        else if (satisfaction >= 4) score -= 25;
+        if (yearsAtCompany < 2) score += 15;
+        if (yearsAtCompany > 5) score -= 15;
+        
+        score = Math.min(Math.max(score, 5), 95);
+        let level = score > 60 ? "High Risk" : (score > 35 ? "Moderate Risk" : "Low Retention Risk");
+        let badgeColor = score > 60 ? "text-danger" : (score > 35 ? "text-warning" : "text-success");
+        return { score, level, badgeColor };
+      }, [yearsAtCompany, overtime, satisfaction]);
+
+      // SQL Query Sandbox State
+      const [selectedQueryKey, setSelectedQueryKey] = useState("customers");
+      const [queryRunTime, setQueryRunTime] = useState("0.024 ms");
+
+      const sqlQueries = {
+        customers: {
+          title: "Top 5 High-Value Banking Customers by Total Balance",
+          sql: `SELECT c.customer_id, c.customer_name, a.account_type, SUM(a.balance) AS total_balance\nFROM customers c\nJOIN accounts a ON c.customer_id = a.customer_id\nGROUP BY c.customer_id, c.customer_name, a.account_type\nORDER BY total_balance DESC\nLIMIT 5;`,
+          rows: [
+            { id: "CUST-1042", name: "Ananya Sharma", type: "Savings & Fixed", total: "₹ 14,85,000" },
+            { id: "CUST-1089", name: "Rajesh Kumar", type: "Current", total: "₹ 12,40,500" },
+            { id: "CUST-1015", name: "Priya Sundaram", type: "Fixed Deposit", total: "₹ 9,90,000" },
+            { id: "CUST-1120", name: "Vikram Sengupta", type: "Savings", total: "₹ 8,75,200" },
+            { id: "CUST-1065", name: "Sneha Patel", type: "Current", total: "₹ 7,60,000" }
+          ]
+        },
+        attrition: {
+          title: "HR Department Attrition Rate & Avg Tenure",
+          sql: `SELECT department,\n       COUNT(*) AS total_employees,\n       SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) AS left_count,\n       ROUND((SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)), 2) AS attrition_rate_pct,\n       ROUND(AVG(years_at_company), 1) AS avg_tenure_years\nFROM hr_workforce_data\nGROUP BY department\nORDER BY attrition_rate_pct DESC;`,
+          rows: [
+            { dept: "Sales & Field Ops", total: "340", left: "68", rate: "20.00%", tenure: "2.4 yrs" },
+            { dept: "Research & Development", total: "480", left: "54", rate: "11.25%", tenure: "4.8 yrs" },
+            { dept: "Human Resources", total: "65", left: "6", rate: "9.23%", tenure: "3.7 yrs" },
+            { dept: "Finance & Accounts", total: "110", left: "8", rate: "7.27%", tenure: "5.1 yrs" }
+          ]
+        },
+        hospital: {
+          title: "Hospital Admissions: Avg Length of Stay (LOS) by Diagnosis",
+          sql: `SELECT diagnosis_group,\n       COUNT(patient_id) AS total_admissions,\n       ROUND(AVG(length_of_stay_days), 1) AS avg_los_days,\n       ROUND(AVG(billing_amount), 0) AS avg_bill_inr\nFROM hospital_patient_records\nGROUP BY diagnosis_group\nORDER BY total_admissions DESC;`,
+          rows: [
+            { group: "Cardiology", admissions: "1,240", los: "4.6 days", bill: "₹ 84,500" },
+            { group: "Orthopedics", admissions: "890", los: "3.8 days", bill: "₹ 62,000" },
+            { group: "Pulmonology", admissions: "760", los: "5.2 days", bill: "₹ 48,200" },
+            { group: "Neurology", admissions: "530", los: "6.8 days", bill: "₹ 1,12,000" }
+          ]
+        }
+      };
+
+      const handleExecuteSql = () => {
+        setQueryRunTime(`${(Math.random() * 0.03 + 0.01).toFixed(3)} ms`);
+        if (window.confetti) {
+          window.confetti({ particleCount: 30, spread: 40, origin: { y: 0.8 } });
+        }
+      };
+
+      return (
+        <section id="playground" className="py-5">
+          <div className="container">
+            <div className="text-center mb-5">
+              <span className="section-tag">Interactive React JS Showcase</span>
+              <h2 className="section-title">Live Analytics <span className="text-gradient-cyan">Playground</span></h2>
+              <p className="section-desc">
+                Interact with the models and queries powering my projects. 
+                Test the ML price estimator, HR attrition risk model, and SQL analytics engine directly in your browser.
+              </p>
+
+              {/* Tabs */}
+              <div className="d-flex justify-content-center gap-2 flex-wrap mb-4">
+                <button 
+                  className={`tab-selector-btn ${activeTab === 'realestate' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('realestate')}
+                >
+                  <i className="fa-solid fa-house-chimney text-info me-1"></i> ML Price & SHAP Estimator
+                </button>
+                <button 
+                  className={`tab-selector-btn ${activeTab === 'hr' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('hr')}
+                >
+                  <i className="fa-solid fa-users-gear text-warning me-1"></i> HR Attrition Predictor
+                </button>
+                <button 
+                  className={`tab-selector-btn ${activeTab === 'sql' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('sql')}
+                >
+                  <i className="fa-solid fa-terminal text-success me-1"></i> SQL Database Query Console
+                </button>
+              </div>
+            </div>
+
+            <div className="playground-box">
+              {/* TAB 1: REAL ESTATE ML */}
+              {activeTab === 'realestate' && (
+                <div>
+                  <div className="row align-items-center gy-4">
+                    <div className="col-lg-6">
+                      <h4 className="fw-bold mb-3 text-info">
+                        <i className="fa-solid fa-sliders me-2"></i> Real Estate Price Predictor
+                      </h4>
+                      <p className="text-muted small mb-4">
+                        Simulating the Python regression model and SHAP feature weightings deployed in my <strong>Streamlit Web App</strong>.
+                      </p>
+
+                      <div className="mb-3">
+                        <label className="form-label d-flex justify-content-between">
+                          <span>Property Size (Sq. Ft):</span>
+                          <span className="fw-bold text-info">{sqft} sq ft</span>
+                        </label>
+                        <input 
+                          type="range" 
+                          className="form-range" 
+                          min="600" 
+                          max="4500" 
+                          step="50"
+                          value={sqft} 
+                          onChange={(e) => setSqft(Number(e.target.value))} 
+                        />
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label d-flex justify-content-between">
+                          <span>Bedrooms / BHK:</span>
+                          <span className="fw-bold text-info">{bhk} BHK</span>
+                        </label>
+                        <div className="btn-group w-100" role="group">
+                          {[1, 2, 3, 4, 5].map((val) => (
+                            <button 
+                              key={val} 
+                              type="button" 
+                              className={`btn btn-sm ${bhk === val ? 'btn-info' : 'btn-outline-secondary'}`}
+                              onClick={() => setBhk(val)}
+                            >
+                              {val} BHK
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label">Location Prime Index:</label>
+                        <select 
+                          className="form-select form-control-custom"
+                          value={locationTier}
+                          onChange={(e) => setLocationTier(e.target.value)}
+                        >
+                          <option value="Suburban">Suburban / Developing Sector</option>
+                          <option value="Prime">Prime City Metro Center</option>
+                          <option value="Luxury">Luxury Waterfront / Gated Hub</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 text-center border-start-lg border-secondary ps-lg-4">
+                      <div className="p-4 rounded-4 bg-dark bg-opacity-50 border border-info-subtle">
+                        <span className="text-muted small text-uppercase fw-bold letter-spacing-1">Estimated Valuation</span>
+                        <div className="display-4 fw-extrabold text-gradient-cyan my-2">
+                          ₹ {estimatedPrice} <span className="fs-5 text-muted">Lakhs</span>
+                        </div>
+                        <span className="badge bg-info-subtle text-cyan border border-info px-3 py-2 rounded-pill">
+                          <i className="fa-solid fa-microchip me-1"></i> Fast Inference via Python Model
+                        </span>
+
+                        <hr className="my-4 border-secondary opacity-25" />
+
+                        <div className="text-start">
+                          <div className="small fw-bold text-muted mb-2">
+                            <i className="fa-solid fa-chart-simple text-info me-1"></i> SHAP Feature Impact Breakdown:
+                          </div>
+                          <div className="d-flex align-items-center mb-2">
+                            <span className="small text-muted" style={{ width: "130px" }}>Square Footage:</span>
+                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                              <div className="progress-bar bg-info" style={{ width: "52%" }}></div>
+                            </div>
+                            <span className="small text-info ms-2">+52%</span>
+                          </div>
+                          <div className="d-flex align-items-center mb-2">
+                            <span className="small text-muted" style={{ width: "130px" }}>Location Geospatial:</span>
+                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                              <div className="progress-bar bg-primary" style={{ width: "32%" }}></div>
+                            </div>
+                            <span className="small text-primary ms-2">+32%</span>
+                          </div>
+                          <div className="d-flex align-items-center">
+                            <span className="small text-muted" style={{ width: "130px" }}>Bedrooms / BHK:</span>
+                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                              <div className="progress-bar bg-success" style={{ width: "16%" }}></div>
+                            </div>
+                            <span className="small text-success ms-2">+16%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: HR ATTRITION */}
+              {activeTab === 'hr' && (
+                <div>
+                  <div className="row align-items-center gy-4">
+                    <div className="col-lg-6">
+                      <h4 className="fw-bold mb-3 text-warning">
+                        <i className="fa-solid fa-user-xmark me-2"></i> Employee Attrition Risk Analyzer
+                      </h4>
+                      <p className="text-muted small mb-4">
+                        Derived from my <strong>HR Analytics Power BI & Advanced Excel Dashboards</strong> to detect retention risk factors.
+                      </p>
+
+                      <div className="mb-3">
+                        <label className="form-label d-flex justify-content-between">
+                          <span>Tenure at Organization:</span>
+                          <span className="fw-bold text-warning">{yearsAtCompany} Years</span>
+                        </label>
+                        <input 
+                          type="range" 
+                          className="form-range" 
+                          min="0.5" 
+                          max="15" 
+                          step="0.5"
+                          value={yearsAtCompany} 
+                          onChange={(e) => setYearsAtCompany(Number(e.target.value))} 
+                        />
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label">Overtime Required Regularly:</label>
+                        <div className="d-flex gap-2">
+                          {["Yes", "No"].map(opt => (
+                            <button 
+                              key={opt}
+                              type="button" 
+                              className={`btn btn-sm flex-fill ${overtime === opt ? (opt === 'Yes' ? 'btn-danger' : 'btn-success') : 'btn-outline-secondary'}`}
+                              onClick={() => setOvertime(opt)}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label d-flex justify-content-between">
+                          <span>Job Satisfaction Rating (1 to 5):</span>
+                          <span className="fw-bold text-warning">{satisfaction} / 5 Stars</span>
+                        </label>
+                        <div className="btn-group w-100">
+                          {[1, 2, 3, 4, 5].map(rating => (
+                            <button 
+                              key={rating}
+                              type="button"
+                              className={`btn btn-sm ${satisfaction === rating ? 'btn-warning' : 'btn-outline-secondary'}`}
+                              onClick={() => setSatisfaction(rating)}
+                            >
+                              {"★".repeat(rating)}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 text-center ps-lg-4">
+                      <div className="p-4 rounded-4 bg-dark bg-opacity-50 border border-warning-subtle">
+                        <span className="text-muted small text-uppercase fw-bold letter-spacing-1">Predicted Attrition Risk</span>
+                        <div className={`display-4 fw-extrabold my-2 ${attritionRisk.badgeColor}`}>
+                          {attritionRisk.score}%
+                        </div>
+                        <h5 className={`fw-bold mb-3 ${attritionRisk.badgeColor}`}>
+                          {attritionRisk.level}
+                        </h5>
+
+                        <div className="progress bg-secondary bg-opacity-25 mb-4" style={{ height: "12px" }}>
+                          <div 
+                            className={`progress-bar ${attritionRisk.score > 60 ? 'bg-danger' : (attritionRisk.score > 35 ? 'bg-warning' : 'bg-success')}`} 
+                            style={{ width: `${attritionRisk.score}%` }}
+                          ></div>
+                        </div>
+
+                        <div className="text-start p-3 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-25 small text-muted">
+                          <i className="fa-solid fa-triangle-exclamation text-warning me-1"></i>
+                          <strong>DAX / BI Recommendation:</strong> {
+                            attritionRisk.score > 60 
+                              ? "Urgent intervention required. High overtime combined with low satisfaction is the #1 statistical driver of voluntary resignations in year 1-3."
+                              : (attritionRisk.score > 35 
+                                  ? "Moderate risk. Monitor workload balance and conduct stay interviews during the semi-annual performance review."
+                                  : "Healthy retention profile. High job satisfaction and stable tenure create a strong organizational anchor.")
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 3: SQL SANDBOX */}
+              {activeTab === 'sql' && (
+                <div>
+                  <div className="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                    <div>
+                      <h4 className="fw-bold mb-1 text-success">
+                        <i className="fa-solid fa-terminal me-2"></i> SQL Analytical Query Runner
+                      </h4>
+                      <p className="text-muted small mb-0">
+                        Test live relational queries from my <strong>Banking Database</strong>, <strong>HR Power Query</strong>, and <strong>Hospital Records</strong>.
+                      </p>
+                    </div>
+
+                    <div className="d-flex gap-2 mt-2 mt-sm-0">
+                      <button 
+                        className={`btn btn-sm ${selectedQueryKey === 'customers' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        onClick={() => setSelectedQueryKey('customers')}
+                      >
+                        Banking SQL
+                      </button>
+                      <button 
+                        className={`btn btn-sm ${selectedQueryKey === 'attrition' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        onClick={() => setSelectedQueryKey('attrition')}
+                      >
+                        HR Attrition
+                      </button>
+                      <button 
+                        className={`btn btn-sm ${selectedQueryKey === 'hospital' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        onClick={() => setSelectedQueryKey('hospital')}
+                      >
+                        Hospital LOS
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-3 bg-black text-light font-monospace small mb-3 border border-secondary border-opacity-50">
+                    <div className="d-flex justify-content-between align-items-center text-muted mb-2 border-bottom border-secondary pb-1">
+                      <span><i className="fa-solid fa-code text-success me-1"></i> SQL Editor ({sqlQueries[selectedQueryKey].title})</span>
+                      <button className="btn btn-sm btn-cyan py-0 px-2 fs-7" onClick={handleExecuteSql}>
+                        <i className="fa-solid fa-play"></i> Run Query
+                      </button>
+                    </div>
+                    <pre className="mb-0 text-info" style={{ whiteSpace: "pre-wrap" }}>
+                      {sqlQueries[selectedQueryKey].sql}
+                    </pre>
+                  </div>
+
+                  <div className="d-flex justify-content-between align-items-center small text-muted mb-2">
+                    <span>
+                      <i className="fa-solid fa-check-double text-success me-1"></i> Query Output: {sqlQueries[selectedQueryKey].rows.length} rows returned
+                    </span>
+                    <span className="badge bg-secondary bg-opacity-50 text-light">
+                      Execution time: {queryRunTime}
+                    </span>
+                  </div>
+
+                  <div className="table-responsive rounded-3 border border-secondary border-opacity-25">
+                    <table className="table table-dark table-hover mb-0 small">
+                      <thead>
+                        {selectedQueryKey === 'customers' && (
+                          <tr className="text-muted">
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                            <th>Account Type</th>
+                            <th className="text-end">Total Balance (INR)</th>
+                          </tr>
+                        )}
+                        {selectedQueryKey === 'attrition' && (
+                          <tr className="text-muted">
+                            <th>Department</th>
+                            <th>Headcount</th>
+                            <th>Left Org</th>
+                            <th>Attrition Rate</th>
+                            <th className="text-end">Avg Tenure</th>
+                          </tr>
+                        )}
+                        {selectedQueryKey === 'hospital' && (
+                          <tr className="text-muted">
+                            <th>Diagnosis Group</th>
+                            <th>Total Inpatients</th>
+                            <th>Avg Length of Stay</th>
+                            <th className="text-end">Avg Hospital Bill</th>
+                          </tr>
+                        )}
+                      </thead>
+                      <tbody>
+                        {selectedQueryKey === 'customers' && sqlQueries.customers.rows.map((row, idx) => (
+                          <tr key={idx}>
+                            <td><code>{row.id}</code></td>
+                            <td className="fw-semibold text-light">{row.name}</td>
+                            <td><span className="badge bg-secondary">{row.type}</span></td>
+                            <td className="text-end text-success fw-bold">{row.total}</td>
+                          </tr>
+                        ))}
+                        {selectedQueryKey === 'attrition' && sqlQueries.attrition.rows.map((row, idx) => (
+                          <tr key={idx}>
+                            <td className="fw-semibold text-light">{row.dept}</td>
+                            <td>{row.total}</td>
+                            <td className="text-danger fw-bold">{row.left}</td>
+                            <td><span className="badge bg-danger-subtle text-danger border border-danger">{row.rate}</span></td>
+                            <td className="text-end text-info">{row.tenure}</td>
+                          </tr>
+                        ))}
+                        {selectedQueryKey === 'hospital' && sqlQueries.hospital.rows.map((row, idx) => (
+                          <tr key={idx}>
+                            <td className="fw-semibold text-light">{row.group}</td>
+                            <td>{row.admissions}</td>
+                            <td><span className="badge bg-primary-subtle text-primary border border-primary">{row.los}</span></td>
+                            <td className="text-end text-success">{row.bill}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: SKILLS SECTION ---
+    function SkillsSection() {
+      return (
+        <section id="skills" className="py-5">
+          <div className="container">
+            <div className="text-center mb-5">
+              <span className="section-tag">Technical Competencies</span>
+              <h2 className="section-title">Technical <span className="text-gradient-cyan">Skill Matrix</span></h2>
+              <p className="section-desc">
+                Hands-on technical strengths categorized directly from my professional resume, 
+                covering data querying, transformation, dashboard visualization, and machine learning.
+              </p>
+            </div>
+
+            <div className="row g-4">
+              {SKILLS_DATA.map((cat, idx) => (
+                <div key={idx} className="col-md-6 col-lg-4">
+                  <div className="glass-card skill-category-card">
+                    <div className="skill-icon-wrapper" style={{ background: `${cat.color}15`, color: cat.color }}>
+                      <i className={cat.icon}></i>
+                    </div>
+
+                    <h4 className="fs-5 fw-bold mb-3">{cat.category}</h4>
+
+                    <div className="d-flex flex-wrap">
+                      {cat.skills.map((s, sIdx) => (
+                        <span key={sIdx} className="skill-pill">
+                          <i className="fa-solid fa-circle-check fs-7" style={{ color: cat.color }}></i>
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: EDUCATION SECTION ---
+    function EducationSection() {
+      return (
+        <section id="education" className="py-5">
+          <div className="container">
+            <div className="text-center mb-5">
+              <span className="section-tag">Academic Background</span>
+              <h2 className="section-title">Education & <span className="text-gradient-cyan">Credentials</span></h2>
+              <p className="section-desc">
+                Engineering foundation in Computer Science along with consistent academic excellence.
+              </p>
+            </div>
+
+            <div className="row justify-content-center">
+              <div className="col-lg-9">
+                {EDUCATION_DATA.map((item, idx) => (
+                  <div key={idx} className="glass-card timeline-card">
+                    <div className="d-flex flex-wrap justify-content-between align-items-center mb-2">
+                      <span className="timeline-year">{item.period}</span>
+                      <span className="badge bg-success-subtle text-success border border-success px-3 py-1 rounded-pill">
+                        {item.grade}
+                      </span>
+                    </div>
+
+                    <h4 className="fs-5 fw-bold mb-1">{item.degree}</h4>
+                    <div className="text-info fw-semibold small mb-2">
+                      <i className="fa-solid fa-graduation-cap me-1"></i> {item.institution}
+                    </div>
+
+                    <p className="text-muted small mb-0">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: CONTACT SECTION ---
+    function ContactSection() {
+      const [formData, setFormData] = useState({
+        name: "",
+        company: "",
+        email: "",
+        role: "Data Analyst",
+        message: ""
+      });
+      const [submitted, setSubmitted] = useState(false);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+        if (window.confetti) {
+          window.confetti({ particleCount: 70, spread: 70 });
+        }
+      };
+
+      const mailtoLink = `mailto:${CANDIDATE_INFO.email}?subject=${encodeURIComponent("Interview Inquiry: " + formData.role + " - " + formData.company)}&body=${encodeURIComponent("Hi Maveen,\n\n" + formData.message + "\n\nBest regards,\n" + formData.name + "\n" + formData.company + "\n" + formData.email)}`;
+
+      return (
+        <section id="contact" className="py-5">
+          <div className="container">
+            <div className="text-center mb-5">
+              <span className="section-tag">Get In Touch</span>
+              <h2 className="section-title">Schedule an <span className="text-gradient-cyan">Interview</span></h2>
+              <p className="section-desc">
+                Looking for a proactive, results-oriented Data Analyst to turn raw datasets into high-value dashboards? 
+                Reach out directly or send an interview invitation.
+              </p>
+            </div>
+
+            <div className="row gy-5">
+              {/* Direct Contacts */}
+              <div className="col-lg-5">
+                <h4 className="fw-bold mb-4">Direct Contact Channels</h4>
+
+                <a href={`mailto:${CANDIDATE_INFO.email}`} className="glass-card contact-link-card">
+                  <div className="contact-link-icon">
+                    <i className="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <div className="text-muted small text-uppercase fw-bold">Email Address</div>
+                    <div className="fw-semibold">{CANDIDATE_INFO.email}</div>
+                  </div>
+                </a>
+
+                <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="glass-card contact-link-card">
+                  <div className="contact-link-icon">
+                    <i className="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <div className="text-muted small text-uppercase fw-bold">Phone / WhatsApp</div>
+                    <div className="fw-semibold">{CANDIDATE_INFO.phone}</div>
+                  </div>
+                </a>
+
+                <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="glass-card contact-link-card">
+                  <div className="contact-link-icon">
+                    <i className="fa-brands fa-github"></i>
+                  </div>
+                  <div>
+                    <div className="text-muted small text-uppercase fw-bold">GitHub Profile</div>
+                    <div className="fw-semibold">github.com/maveenganthirajan-arch</div>
+                  </div>
+                </a>
+
+                <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="glass-card contact-link-card">
+                  <div className="contact-link-icon">
+                    <i className="fa-solid fa-code"></i>
+                  </div>
+                  <div>
+                    <div className="text-muted small text-uppercase fw-bold">LeetCode Profile</div>
+                    <div className="fw-semibold">leetcode.com/u/gqSuIZqIeW</div>
+                  </div>
+                </a>
+
+                <div className="glass-card contact-link-card">
+                  <div className="contact-link-icon">
+                    <i className="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <div className="text-muted small text-uppercase fw-bold">Location</div>
+                    <div className="fw-semibold">{CANDIDATE_INFO.location}</div>
+                  </div>
+                </div>
+
+                {/* Direct Download Card */}
+                <div className="mt-4 p-4 rounded-4 bg-primary bg-opacity-10 border border-primary-subtle text-center">
+                  <h6 className="fw-bold mb-2">Need a copy of my resume?</h6>
+                  <p className="text-muted small mb-3">Download the full verified resume in PDF format.</p>
+                  <a href={CANDIDATE_INFO.resumePdf} target="_blank" rel="noreferrer" className="btn btn-cyan btn-sm">
+                    <i className="fa-solid fa-file-pdf"></i> Download Resume (PDF)
+                  </a>
+                </div>
+              </div>
+
+              {/* Form */}
+              <div className="col-lg-7">
+                <div className="glass-card p-4 p-md-5">
+                  <h4 className="fw-bold mb-3">Send Interview Invitation</h4>
+                  <p className="text-muted small mb-4">
+                    Fill out the form below to initiate an email conversation directly with Maveen G.
+                  </p>
+
+                  {submitted ? (
+                    <div className="text-center py-4">
+                      <div className="fs-1 text-success mb-3">
+                        <i className="fa-solid fa-circle-check"></i>
+                      </div>
+                      <h4 className="fw-bold text-success mb-2">Ready to Dispatch!</h4>
+                      <p className="text-muted mb-4">
+                        Thank you for reaching out! Click below to send this directly via your email client, or copy the pre-filled text.
+                      </p>
+                      <a href={mailtoLink} className="btn btn-cyan mb-2">
+                        <i className="fa-solid fa-paper-plane"></i> Launch Default Mail App
+                      </a>
+                      <br/>
+                      <button 
+                        className="btn btn-link text-info small" 
+                        onClick={() => setSubmitted(false)}
+                      >
+                        Edit Information
+                      </button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit}>
+                      <div className="row g-3">
+                        <div className="col-md-6">
+                          <label className="form-label small text-muted">Your Name / Recruiter Name *</label>
+                          <input 
+                            type="text" 
+                            className="form-control form-control-custom" 
+                            required 
+                            placeholder="e.g. Sarah Jenkins"
+                            value={formData.name}
+                            onChange={(e) => setFormData({...formData, name: e.target.value})}
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <label className="form-label small text-muted">Company / Organization *</label>
+                          <input 
+                            type="text" 
+                            className="form-control form-control-custom" 
+                            required 
+                            placeholder="e.g. Analytics Corp"
+                            value={formData.company}
+                            onChange={(e) => setFormData({...formData, company: e.target.value})}
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <label className="form-label small text-muted">Your Email *</label>
+                          <input 
+                            type="email" 
+                            className="form-control form-control-custom" 
+                            required 
+                            placeholder="recruiter@company.com"
+                            value={formData.email}
+                            onChange={(e) => setFormData({...formData, email: e.target.value})}
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <label className="form-label small text-muted">Position / Role</label>
+                          <select 
+                            className="form-select form-control-custom"
+                            value={formData.role}
+                            onChange={(e) => setFormData({...formData, role: e.target.value})}
+                          >
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="BI Analyst / Power BI Developer">BI Analyst / Power BI Developer</option>
+                            <option value="Business Analyst">Business Analyst</option>
+                            <option value="SQL / Database Specialist">SQL / Database Specialist</option>
+                            <option value="General Conversation">General Conversation</option>
+                          </select>
+                        </div>
+                        <div className="col-12">
+                          <label className="form-label small text-muted">Message / Interview Schedule Details *</label>
+                          <textarea 
+                            className="form-control form-control-custom" 
+                            rows="4" 
+                            required
+                            placeholder="Hi Maveen, we came across your portfolio and would love to schedule a preliminary interview for our Data Analyst opening..."
+                            value={formData.message}
+                            onChange={(e) => setFormData({...formData, message: e.target.value})}
+                          ></textarea>
+                        </div>
+                        <div className="col-12 mt-4">
+                          <button type="submit" className="btn btn-cyan w-100 justify-content-center">
+                            <i className="fa-solid fa-paper-plane"></i> Submit & Open Email Client
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- COMPONENT: MODAL DETAIL ---
+    function ProjectDetailModal({ project, onClose }) {
+      if (!project) return null;
+
+      return (
+        <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.75)', zIndex: 1050 }}>
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content modal-content-custom">
+              <div className="modal-header border-secondary border-opacity-25 pb-3">
+                <div>
+                  <span className="badge bg-info-subtle text-cyan border border-info mb-1">
+                    {project.domain} • {project.category}
+                  </span>
+                  <h4 className="modal-title fw-bold text-white mb-0">{project.title}</h4>
+                </div>
+                <button type="button" className="btn-close btn-close-white" onClick={onClose}></button>
+              </div>
+
+              <div className="modal-body py-4">
+                <div className="mb-4">
+                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">Technologies & Tools</h6>
+                  <div className="d-flex flex-wrap gap-1 mt-2">
+                    {project.tech.map((t, idx) => (
+                      <span key={idx} className="tech-tag-badge">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                    <i className="fa-solid fa-triangle-exclamation me-1"></i> Business Problem Statement
+                  </h6>
+                  <p className="text-light opacity-90 small">
+                    {project.deepDive.problem}
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                    <i className="fa-solid fa-gears me-1"></i> Analytical Methodology & Execution
+                  </h6>
+                  <p className="text-light opacity-90 small">
+                    {project.deepDive.methodology}
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                    <i className="fa-solid fa-box-archive me-1"></i> Core Deliverables
+                  </h6>
+                  <p className="text-light opacity-90 small">
+                    {project.deepDive.deliverables}
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-3 bg-success bg-opacity-10 border border-success border-opacity-25 mb-3">
+                  <h6 className="fw-bold text-success text-uppercase small letter-spacing-1 mb-1">
+                    <i className="fa-solid fa-chart-line me-1"></i> Measurable Business Impact
+                  </h6>
+                  <p className="text-light opacity-90 small mb-0">
+                    {project.deepDive.impact}
+                  </p>
+                </div>
+
+                <div>
+                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1 mb-2">Resume Key Bullets</h6>
+                  {project.highlights.map((bullet, idx) => (
+                    <div key={idx} className="project-bullet small">
+                      {bullet}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="modal-footer border-secondary border-opacity-25">
+                <a href={project.github} target="_blank" rel="noreferrer" className="btn btn-outline-glass">
+                  <i className="fa-brands fa-github"></i> Repository
+                </a>
+                <button type="button" className="btn btn-cyan" onClick={onClose}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // --- COMPONENT: FOOTER ---
+    function Footer() {
+      return (
+        <footer>
+          <div className="container text-center">
+            <div className="d-flex justify-content-center gap-3 mb-3">
+              <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-muted hover-cyan">
+                <i className="fa-brands fa-github fs-5"></i>
+              </a>
+              <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-muted hover-cyan">
+                <i className="fa-solid fa-code fs-5"></i>
+              </a>
+              <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-muted hover-cyan">
+                <i className="fa-solid fa-envelope fs-5"></i>
+              </a>
+              <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-muted hover-cyan">
+                <i className="fa-solid fa-phone fs-5"></i>
+              </a>
+            </div>
+            <p className="mb-1">
+              Crafted with <strong className="text-info">React JS & Bootstrap 5</strong> for <strong>Maveen G</strong> | Data Analyst & BI Specialist
+            </p>
+            <p className="small text-muted mb-0">
+              Salem, Tamil Nadu, India • B.E. Computer Science and Engineering (Kongu Engineering College)
+            </p>
+          </div>
+        </footer>
+      );
+    }
+
+    // --- MAIN APP ROOT ---
+    function App() {
+      const [theme, setTheme] = useState("dark");
+      const [activeModalProject, setActiveModalProject] = useState(null);
+      const [showScrollTop, setShowScrollTop] = useState(false);
+
+      const toggleTheme = () => {
+        const nextTheme = theme === "dark" ? "light" : "dark";
+        setTheme(nextTheme);
+        document.documentElement.setAttribute("data-theme", nextTheme);
+      };
+
+      useEffect(() => {
+        const checkScroll = () => {
+          setShowScrollTop(window.scrollY > 400);
+        };
+        window.addEventListener("scroll", checkScroll);
+        return () => window.removeEventListener("scroll", checkScroll);
+      }, []);
+
+      const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      return (
+        <div>
+          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          <Hero />
+          <MetricsRibbon />
+          <AboutSection />
+          <ProjectsSection onOpenModal={(p) => setActiveModalProject(p)} />
+          <InteractivePlayground />
+          <SkillsSection />
+          <EducationSection />
+          <ContactSection />
+          <Footer />
+
+          {activeModalProject && (
+            <ProjectDetailModal 
+              project={activeModalProject} 
+              onClose={() => setActiveModalProject(null)} 
+            />
+          )}
+
+          {showScrollTop && (
+            <button 
+              className="btn-scroll-top" 
+              onClick={scrollToTop} 
+              title="Back to Top"
+            >
+              <i className="fa-solid fa-arrow-up"></i>
+            </button>
+          )}
+        </div>
+      );
+    }
+
+    // Mount React App
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
