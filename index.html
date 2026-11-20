@@ -171,7 +171,8 @@
           deliverables: "Complete MySQL database scripts, schema DDL, test seed data, and a suite of 30+ production-grade analytical queries for branch balance reconciliation.",
           impact: "Guaranteed data integrity with zero orphan records and query execution under 25ms on large transaction batches."
         },
-        github: "https://github.com/maveenganthirajan-arch"
+        github: "https://github.com/maveenganthirajan-arch/banking-management-system-mysql",
+        liveSqlRepo: "https://github.com/maveenganthirajan-arch/banking-management-system-mysql"
       }
     ];
 
@@ -646,15 +647,27 @@
                       >
                         <i className="fa-solid fa-circle-info"></i> Project Deep-Dive
                       </button>
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="btn btn-sm btn-outline-glass" 
-                        title="View GitHub Repository"
-                      >
-                        <i className="fa-brands fa-github"></i>
-                      </a>
+                      {project.id === 'banking-management-system' ? (
+                        <a 
+                          href={project.github} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="btn btn-sm btn-primary d-inline-flex align-items-center gap-1 px-3" 
+                          title="Open MySQL GitHub Repository"
+                        >
+                          <i className="fa-solid fa-database"></i> Live MySQL ↗
+                        </a>
+                      ) : (
+                        <a 
+                          href={project.github} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="btn btn-sm btn-outline-glass" 
+                          title="View GitHub Repository"
+                        >
+                          <i className="fa-brands fa-github"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -1025,6 +1038,26 @@
                       </button>
                     </div>
                   </div>
+
+                  {selectedQueryKey === 'customers' && (
+                    <div className="alert alert-primary bg-primary-subtle border-primary-subtle d-flex flex-wrap align-items-center justify-content-between py-2 px-3 rounded-3 mb-3">
+                      <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0">
+                        <i className="fa-solid fa-database text-primary fs-5"></i>
+                        <div>
+                          <span className="fw-bold text-dark">Live Banking MySQL Project Source:</span>
+                          <span className="text-muted ms-1 small">Relational Schema & 30+ Production Queries</span>
+                        </div>
+                      </div>
+                      <a 
+                        href="https://github.com/maveenganthirajan-arch/banking-management-system-mysql" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="btn btn-sm btn-primary fw-bold"
+                      >
+                        <i className="fa-brands fa-github me-1"></i> Open MySQL Repo in GitHub ↗
+                      </a>
+                    </div>
+                  )}
 
                   <div className="p-3 rounded-3 bg-light text-dark font-monospace small mb-3 border">
                     <div className="d-flex justify-content-between align-items-center text-muted mb-2 border-bottom pb-1">
@@ -1475,8 +1508,14 @@
               </div>
 
               <div className="modal-footer border-top">
-                <a href={project.github} target="_blank" rel="noreferrer" className="btn btn-outline-glass">
-                  <i className="fa-brands fa-github"></i> Repository
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className={`btn ${project.id === 'banking-management-system' ? 'btn-primary' : 'btn-outline-glass'}`}
+                >
+                  <i className="fa-brands fa-github me-1"></i> 
+                  {project.id === 'banking-management-system' ? 'Open Banking MySQL Repo ↗' : 'GitHub Repository ↗'}
                 </a>
                 <button type="button" className="btn btn-cyan" onClick={onClose}>
                   Close
