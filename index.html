@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
   <!-- Font Awesome 6 -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
+  <!-- Custom Light Theme CSS -->
   <link rel="stylesheet" href="assets/style.css">
 
   <!-- React 18 & ReactDOM -->
@@ -33,7 +33,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <!-- Decorative Backgrounds -->
+  <!-- Decorative Light Backgrounds -->
   <div class="bg-mesh"></div>
   <div class="bg-grid"></div>
 
@@ -45,9 +45,9 @@
 
   <!-- React Application Code -->
   <script type="text/babel">
-    const { useState, useEffect, useMemo, useRef } = React;
+    const { useState, useEffect, useMemo } = React;
 
-    // --- DATA STORE (Exact from Resume) ---
+    // --- DATA STORE (From Resume) ---
     const CANDIDATE_INFO = {
       name: "Maveen G",
       title: "Data Analyst | Business Intelligence Specialist",
@@ -70,8 +70,8 @@
         category: "Machine Learning & Python",
         domain: "Real Estate",
         tech: ["Python", "SQL", "Regression", "Geospatial Analysis", "SHAP", "Streamlit"],
-        icon: "fa-solid fa-house-chimney-crack",
-        color: "#00f2fe",
+        icon: "fa-solid fa-house-chimney",
+        color: "#0284c7",
         summary: "Predictive real estate valuation platform with machine learning explainability and geospatial market clustering.",
         highlights: [
           "Engineered regression models in Python to accurately predict property prices from housing and location data queried in SQL.",
@@ -94,7 +94,7 @@
         domain: "Human Resources",
         tech: ["Power BI", "Excel", "Power Query", "DAX"],
         icon: "fa-solid fa-chart-pie",
-        color: "#f59e0b",
+        color: "#d97706",
         summary: "Executive-ready BI dashboard tracking workforce health, attrition risk, performance tiers, and diversity metrics.",
         highlights: [
           "Designed an interactive HR dashboard that gives leaders a clear, real-time view of workforce performance.",
@@ -116,7 +116,7 @@
         domain: "Human Resources",
         tech: ["Excel", "PivotTables", "Charts", "KPI Metrics"],
         icon: "fa-solid fa-file-excel",
-        color: "#10b981",
+        color: "#059669",
         summary: "Dynamic spreadsheet analytics system uncovering employee attrition trends, attendance patterns, and salary distributions.",
         highlights: [
           "Analysed employee attrition, attendance patterns and salary distribution to reveal what drives retention.",
@@ -138,7 +138,7 @@
         domain: "Healthcare",
         tech: ["Tableau", "Healthcare Analytics", "Data Modeling"],
         icon: "fa-solid fa-hospital-user",
-        color: "#8b5cf6",
+        color: "#7c3aed",
         summary: "Clinical and operational Tableau dashboard visualizing patient admissions, demographic distributions, and length-of-stay.",
         highlights: [
           "Explored hospital patient records to uncover trends in admissions, demographics and care outcomes.",
@@ -159,7 +159,7 @@
         domain: "Banking & Finance",
         tech: ["MySQL", "Database Design", "SQL Queries", "Schema Optimization"],
         icon: "fa-solid fa-building-columns",
-        color: "#38bdf8",
+        color: "#0284c7",
         summary: "Scalable relational database architecture powering branch accounts, transaction ledgers, and audit-ready reporting.",
         highlights: [
           "Architected a robust relational database covering customers, accounts and transactions.",
@@ -179,31 +179,31 @@
       {
         category: "Languages & Databases",
         icon: "fa-solid fa-database",
-        color: "#00f2fe",
+        color: "#0284c7",
         skills: ["Python", "SQL", "MySQL"]
       },
       {
         category: "BI & Visualisation",
         icon: "fa-solid fa-chart-column",
-        color: "#f59e0b",
+        color: "#d97706",
         skills: ["Power BI", "Tableau", "Microsoft Excel", "PivotTables", "Charts", "Interactive Dashboards"]
       },
       {
         category: "Data Prep & Modelling",
         icon: "fa-solid fa-filter",
-        color: "#10b981",
+        color: "#059669",
         skills: ["Power Query", "DAX", "Data Cleaning", "Database Design", "KPI Development", "Data Pipelines"]
       },
       {
         category: "Machine Learning",
         icon: "fa-solid fa-brain",
-        color: "#8b5cf6",
+        color: "#7c3aed",
         skills: ["Regression Modelling", "Geospatial Analysis", "SHAP (Model Explainability)", "Feature Engineering"]
       },
       {
         category: "Deployment & Tools",
         icon: "fa-solid fa-screwdriver-wrench",
-        color: "#ec4899",
+        color: "#db2777",
         skills: ["Streamlit", "Git", "GitHub", "VS Code", "Jupyter Notebook"]
       }
     ];
@@ -258,8 +258,8 @@
       }
     ];
 
-    // --- COMPONENT: NAVBAR ---
-    function Navbar({ theme, toggleTheme }) {
+    // --- COMPONENT: NAVBAR (Light & Clean) ---
+    function Navbar() {
       const [scrolled, setScrolled] = useState(false);
 
       useEffect(() => {
@@ -273,20 +273,12 @@
       return (
         <nav className={`navbar navbar-expand-lg fixed-top navbar-custom ${scrolled ? 'shadow-sm' : ''}`}>
           <div className="container">
-            <a className="navbar-brand text-gradient-cyan" href="#hero">
+            <a className="navbar-brand text-gradient-blue" href="#hero">
               <span className="brand-dot"></span>
               MAVEEN G
             </a>
 
             <div className="d-flex align-items-center gap-2 order-lg-3">
-              <button 
-                onClick={toggleTheme} 
-                className="btn btn-sm btn-outline-glass rounded-pill px-3 py-2"
-                title="Toggle Theme"
-              >
-                <i className={`fa-solid ${theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon text-primary'}`}></i>
-              </button>
-
               <a 
                 href={CANDIDATE_INFO.resumePdf} 
                 target="_blank" 
@@ -297,12 +289,12 @@
               </a>
 
               <button 
-                className="navbar-toggler border-0 text-white" 
+                className="navbar-toggler border-0" 
                 type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navMenu"
               >
-                <i className="fa-solid fa-bars-staggered text-gradient-cyan fs-4"></i>
+                <i className="fa-solid fa-bars text-primary fs-4"></i>
               </button>
             </div>
 
@@ -316,7 +308,7 @@
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#playground">
-                    <span className="badge bg-primary-subtle text-cyan border border-info-subtle me-1">Live</span>
+                    <span className="badge bg-primary text-white me-1">Live</span>
                     Analytics Demo
                   </a>
                 </li>
@@ -374,11 +366,11 @@
                 </div>
 
                 <h1 className="hero-title">
-                  Hi, I'm <span className="text-gradient-cyan">Maveen G</span>
+                  Hi, I'm <span className="text-gradient-blue">Maveen G</span>
                 </h1>
 
                 <div className="hero-subtitle d-flex align-items-center gap-2">
-                  <i className="fa-solid fa-chart-line text-info"></i>
+                  <i className="fa-solid fa-chart-line text-primary"></i>
                   <span>{titles[titleIndex]}</span>
                 </div>
 
@@ -407,20 +399,20 @@
                 </div>
 
                 <div className="d-flex align-items-center gap-4 pt-2 text-muted">
-                  <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-muted hover-cyan fs-5" title="GitHub">
+                  <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-secondary hover-cyan fs-5" title="GitHub">
                     <i className="fa-brands fa-github"></i>
                   </a>
-                  <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-muted hover-cyan fs-5" title="LeetCode">
+                  <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-secondary hover-cyan fs-5" title="LeetCode">
                     <i className="fa-solid fa-code"></i>
                   </a>
-                  <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-muted hover-cyan fs-5" title="Email">
+                  <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-secondary hover-cyan fs-5" title="Email">
                     <i className="fa-solid fa-envelope"></i>
                   </a>
-                  <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-muted hover-cyan fs-5" title="Phone">
+                  <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-secondary hover-cyan fs-5" title="Phone">
                     <i className="fa-solid fa-phone"></i>
                   </a>
-                  <span className="small border-start ps-3 border-secondary text-dim">
-                    <i className="fa-solid fa-location-dot text-info me-1"></i> Salem, Tamil Nadu
+                  <span className="small border-start ps-3 border-secondary-subtle text-muted">
+                    <i className="fa-solid fa-location-dot text-primary me-1"></i> Salem, Tamil Nadu
                   </span>
                 </div>
               </div>
@@ -443,7 +435,7 @@
                   </div>
 
                   <div className="floating-chip bottom-right">
-                    <i className="fa-solid fa-terminal text-info"></i>
+                    <i className="fa-solid fa-terminal text-primary"></i>
                     <span>Python & SQL Pipeline</span>
                   </div>
 
@@ -462,10 +454,10 @@
     // --- COMPONENT: METRICS RIBBON ---
     function MetricsRibbon() {
       const metrics = [
-        { number: "5", label: "End-to-End Projects", icon: "fa-diagram-project", color: "#00f2fe" },
-        { number: "4", label: "Business Domains (HR, Real Estate, Banking, Health)", icon: "fa-network-wired", color: "#a855f7" },
-        { number: "91.6%", label: "HSC Academic Distinction", icon: "fa-award", color: "#10b981" },
-        { number: "100%", label: "Data Pipeline Mastery (SQL to BI)", icon: "fa-circle-check", color: "#f59e0b" }
+        { number: "5", label: "End-to-End Projects", icon: "fa-diagram-project", color: "#0284c7" },
+        { number: "4", label: "Business Domains (HR, Real Estate, Banking, Health)", icon: "fa-network-wired", color: "#7c3aed" },
+        { number: "91.6%", label: "HSC Academic Distinction", icon: "fa-award", color: "#059669" },
+        { number: "100%", label: "Data Pipeline Mastery (SQL to BI)", icon: "fa-circle-check", color: "#d97706" }
       ];
 
       return (
@@ -494,7 +486,7 @@
           <div className="container">
             <div className="text-center mb-5">
               <span className="section-tag">Executive Profile</span>
-              <h2 className="section-title">About <span className="text-gradient-cyan">Maveen G</span></h2>
+              <h2 className="section-title">About <span className="text-gradient-blue">Maveen G</span></h2>
               <p className="section-desc">
                 {CANDIDATE_INFO.summary}
               </p>
@@ -508,7 +500,7 @@
                       <i className={str.icon}></i>
                     </div>
                     <div>
-                      <h5 className="fs-6 fw-bold mb-2">{str.title}</h5>
+                      <h5 className="fs-6 fw-bold mb-2 text-dark">{str.title}</h5>
                       <p className="text-muted small mb-0">{str.desc}</p>
                     </div>
                   </div>
@@ -516,15 +508,15 @@
               ))}
             </div>
 
-            {/* Quick Analytics Philosophy Callout */}
+            {/* Analytics Philosophy Callout */}
             <div className="glass-card p-4 p-md-5">
               <div className="row align-items-center gy-4">
                 <div className="col-lg-8">
-                  <h4 className="fw-bold mb-3">
+                  <h4 className="fw-bold mb-3 text-dark">
                     <i className="fa-solid fa-lightbulb text-warning me-2"></i>
                     What I Bring to Your Data Team
                   </h4>
-                  <p className="text-muted mb-0">
+                  <p className="text-body mb-0">
                     In every project—from engineering regression models with <strong>SHAP explainability</strong> in Python, 
                     authoring dynamic <strong>DAX measures</strong> in Power BI, analyzing healthcare patient flows in <strong>Tableau</strong>, 
                     to normalizing <strong>MySQL databases</strong>—my focus is delivering clear, high-confidence decision signals 
@@ -566,7 +558,7 @@
           <div className="container">
             <div className="text-center mb-4">
               <span className="section-tag">Featured Portfolio</span>
-              <h2 className="section-title">5 Core Projects <span className="text-gradient-cyan">From Resume</span></h2>
+              <h2 className="section-title">5 Core Projects <span className="text-gradient-blue">From Resume</span></h2>
               <p className="section-desc">
                 Real-world analytics applications spanning machine learning price prediction, 
                 executive HR intelligence, healthcare clinical records, and relational banking systems.
@@ -577,12 +569,12 @@
             <div className="row justify-content-center mb-4">
               <div className="col-md-8 col-lg-6 mb-3">
                 <div className="input-group">
-                  <span className="input-group-text bg-transparent border-secondary text-info">
+                  <span className="input-group-text bg-white border-end-0 text-primary">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </span>
                   <input 
                     type="text" 
-                    className="form-control form-control-custom"
+                    className="form-control form-control-custom border-start-0"
                     placeholder="Search by tech (e.g. DAX, SHAP, MySQL, Streamlit)..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -682,7 +674,7 @@
       );
     }
 
-    // --- COMPONENT: INTERACTIVE ANALYTICS PLAYGROUND (React JS Wow-factor) ---
+    // --- COMPONENT: INTERACTIVE ANALYTICS PLAYGROUND (Light Theme) ---
     function InteractivePlayground() {
       const [activeTab, setActiveTab] = useState("realestate");
 
@@ -767,7 +759,7 @@
           <div className="container">
             <div className="text-center mb-5">
               <span className="section-tag">Interactive React JS Showcase</span>
-              <h2 className="section-title">Live Analytics <span className="text-gradient-cyan">Playground</span></h2>
+              <h2 className="section-title">Live Analytics <span className="text-gradient-blue">Playground</span></h2>
               <p className="section-desc">
                 Interact with the models and queries powering my projects. 
                 Test the ML price estimator, HR attrition risk model, and SQL analytics engine directly in your browser.
@@ -779,7 +771,7 @@
                   className={`tab-selector-btn ${activeTab === 'realestate' ? 'active' : ''}`}
                   onClick={() => setActiveTab('realestate')}
                 >
-                  <i className="fa-solid fa-house-chimney text-info me-1"></i> ML Price & SHAP Estimator
+                  <i className="fa-solid fa-house-chimney text-primary me-1"></i> ML Price & SHAP Estimator
                 </button>
                 <button 
                   className={`tab-selector-btn ${activeTab === 'hr' ? 'active' : ''}`}
@@ -802,8 +794,8 @@
                 <div>
                   <div className="row align-items-center gy-4">
                     <div className="col-lg-6">
-                      <h4 className="fw-bold mb-3 text-info">
-                        <i className="fa-solid fa-sliders me-2"></i> Real Estate Price Predictor
+                      <h4 className="fw-bold mb-3 text-dark">
+                        <i className="fa-solid fa-sliders text-primary me-2"></i> Real Estate Price Predictor
                       </h4>
                       <p className="text-muted small mb-4">
                         Simulating the Python regression model and SHAP feature weightings deployed in my <strong>Streamlit Web App</strong>.
@@ -812,7 +804,7 @@
                       <div className="mb-3">
                         <label className="form-label d-flex justify-content-between">
                           <span>Property Size (Sq. Ft):</span>
-                          <span className="fw-bold text-info">{sqft} sq ft</span>
+                          <span className="fw-bold text-primary">{sqft} sq ft</span>
                         </label>
                         <input 
                           type="range" 
@@ -828,14 +820,14 @@
                       <div className="mb-3">
                         <label className="form-label d-flex justify-content-between">
                           <span>Bedrooms / BHK:</span>
-                          <span className="fw-bold text-info">{bhk} BHK</span>
+                          <span className="fw-bold text-primary">{bhk} BHK</span>
                         </label>
                         <div className="btn-group w-100" role="group">
                           {[1, 2, 3, 4, 5].map((val) => (
                             <button 
                               key={val} 
                               type="button" 
-                              className={`btn btn-sm ${bhk === val ? 'btn-info' : 'btn-outline-secondary'}`}
+                              className={`btn btn-sm ${bhk === val ? 'btn-primary' : 'btn-outline-secondary'}`}
                               onClick={() => setBhk(val)}
                             >
                               {val} BHK
@@ -858,42 +850,42 @@
                       </div>
                     </div>
 
-                    <div className="col-lg-6 text-center border-start-lg border-secondary ps-lg-4">
-                      <div className="p-4 rounded-4 bg-dark bg-opacity-50 border border-info-subtle">
-                        <span className="text-muted small text-uppercase fw-bold letter-spacing-1">Estimated Valuation</span>
-                        <div className="display-4 fw-extrabold text-gradient-cyan my-2">
+                    <div className="col-lg-6 text-center border-start-lg border-secondary-subtle ps-lg-4">
+                      <div className="calc-result-box">
+                        <span className="text-muted small text-uppercase fw-bold">Estimated Valuation</span>
+                        <div className="display-4 fw-extrabold text-gradient-blue my-2">
                           ₹ {estimatedPrice} <span className="fs-5 text-muted">Lakhs</span>
                         </div>
-                        <span className="badge bg-info-subtle text-cyan border border-info px-3 py-2 rounded-pill">
+                        <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill">
                           <i className="fa-solid fa-microchip me-1"></i> Fast Inference via Python Model
                         </span>
 
-                        <hr className="my-4 border-secondary opacity-25" />
+                        <hr className="my-4" />
 
                         <div className="text-start">
-                          <div className="small fw-bold text-muted mb-2">
-                            <i className="fa-solid fa-chart-simple text-info me-1"></i> SHAP Feature Impact Breakdown:
+                          <div className="small fw-bold text-dark mb-2">
+                            <i className="fa-solid fa-chart-simple text-primary me-1"></i> SHAP Feature Impact Breakdown:
                           </div>
                           <div className="d-flex align-items-center mb-2">
                             <span className="small text-muted" style={{ width: "130px" }}>Square Footage:</span>
-                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                            <div className="progress flex-grow-1 bg-light border" style={{ height: "10px" }}>
                               <div className="progress-bar bg-info" style={{ width: "52%" }}></div>
                             </div>
-                            <span className="small text-info ms-2">+52%</span>
+                            <span className="small text-info fw-bold ms-2">+52%</span>
                           </div>
                           <div className="d-flex align-items-center mb-2">
                             <span className="small text-muted" style={{ width: "130px" }}>Location Geospatial:</span>
-                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                            <div className="progress flex-grow-1 bg-light border" style={{ height: "10px" }}>
                               <div className="progress-bar bg-primary" style={{ width: "32%" }}></div>
                             </div>
-                            <span className="small text-primary ms-2">+32%</span>
+                            <span className="small text-primary fw-bold ms-2">+32%</span>
                           </div>
                           <div className="d-flex align-items-center">
                             <span className="small text-muted" style={{ width: "130px" }}>Bedrooms / BHK:</span>
-                            <div className="progress flex-grow-1 bg-secondary bg-opacity-25" style={{ height: "8px" }}>
+                            <div className="progress flex-grow-1 bg-light border" style={{ height: "10px" }}>
                               <div className="progress-bar bg-success" style={{ width: "16%" }}></div>
                             </div>
-                            <span className="small text-success ms-2">+16%</span>
+                            <span className="small text-success fw-bold ms-2">+16%</span>
                           </div>
                         </div>
                       </div>
@@ -907,8 +899,8 @@
                 <div>
                   <div className="row align-items-center gy-4">
                     <div className="col-lg-6">
-                      <h4 className="fw-bold mb-3 text-warning">
-                        <i className="fa-solid fa-user-xmark me-2"></i> Employee Attrition Risk Analyzer
+                      <h4 className="fw-bold mb-3 text-dark">
+                        <i className="fa-solid fa-user-xmark text-warning me-2"></i> Employee Attrition Risk Analyzer
                       </h4>
                       <p className="text-muted small mb-4">
                         Derived from my <strong>HR Analytics Power BI & Advanced Excel Dashboards</strong> to detect retention risk factors.
@@ -917,7 +909,7 @@
                       <div className="mb-3">
                         <label className="form-label d-flex justify-content-between">
                           <span>Tenure at Organization:</span>
-                          <span className="fw-bold text-warning">{yearsAtCompany} Years</span>
+                          <span className="fw-bold text-dark">{yearsAtCompany} Years</span>
                         </label>
                         <input 
                           type="range" 
@@ -949,14 +941,14 @@
                       <div className="mb-3">
                         <label className="form-label d-flex justify-content-between">
                           <span>Job Satisfaction Rating (1 to 5):</span>
-                          <span className="fw-bold text-warning">{satisfaction} / 5 Stars</span>
+                          <span className="fw-bold text-dark">{satisfaction} / 5 Stars</span>
                         </label>
                         <div className="btn-group w-100">
                           {[1, 2, 3, 4, 5].map(rating => (
                             <button 
                               key={rating}
                               type="button"
-                              className={`btn btn-sm ${satisfaction === rating ? 'btn-warning' : 'btn-outline-secondary'}`}
+                              className={`btn btn-sm ${satisfaction === rating ? 'btn-warning text-dark fw-bold' : 'btn-outline-secondary'}`}
                               onClick={() => setSatisfaction(rating)}
                             >
                               {"★".repeat(rating)}
@@ -967,8 +959,8 @@
                     </div>
 
                     <div className="col-lg-6 text-center ps-lg-4">
-                      <div className="p-4 rounded-4 bg-dark bg-opacity-50 border border-warning-subtle">
-                        <span className="text-muted small text-uppercase fw-bold letter-spacing-1">Predicted Attrition Risk</span>
+                      <div className="calc-result-box">
+                        <span className="text-muted small text-uppercase fw-bold">Predicted Attrition Risk</span>
                         <div className={`display-4 fw-extrabold my-2 ${attritionRisk.badgeColor}`}>
                           {attritionRisk.score}%
                         </div>
@@ -976,16 +968,16 @@
                           {attritionRisk.level}
                         </h5>
 
-                        <div className="progress bg-secondary bg-opacity-25 mb-4" style={{ height: "12px" }}>
+                        <div className="progress bg-light border mb-4" style={{ height: "14px" }}>
                           <div 
                             className={`progress-bar ${attritionRisk.score > 60 ? 'bg-danger' : (attritionRisk.score > 35 ? 'bg-warning' : 'bg-success')}`} 
                             style={{ width: `${attritionRisk.score}%` }}
                           ></div>
                         </div>
 
-                        <div className="text-start p-3 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-25 small text-muted">
+                        <div className="text-start p-3 rounded-3 bg-white border small text-muted">
                           <i className="fa-solid fa-triangle-exclamation text-warning me-1"></i>
-                          <strong>DAX / BI Recommendation:</strong> {
+                          <strong className="text-dark">DAX / BI Recommendation:</strong> {
                             attritionRisk.score > 60 
                               ? "Urgent intervention required. High overtime combined with low satisfaction is the #1 statistical driver of voluntary resignations in year 1-3."
                               : (attritionRisk.score > 35 
@@ -1004,8 +996,8 @@
                 <div>
                   <div className="d-flex flex-wrap justify-content-between align-items-center mb-3">
                     <div>
-                      <h4 className="fw-bold mb-1 text-success">
-                        <i className="fa-solid fa-terminal me-2"></i> SQL Analytical Query Runner
+                      <h4 className="fw-bold mb-1 text-dark">
+                        <i className="fa-solid fa-terminal text-success me-2"></i> SQL Analytical Query Runner
                       </h4>
                       <p className="text-muted small mb-0">
                         Test live relational queries from my <strong>Banking Database</strong>, <strong>HR Power Query</strong>, and <strong>Hospital Records</strong>.
@@ -1014,19 +1006,19 @@
 
                     <div className="d-flex gap-2 mt-2 mt-sm-0">
                       <button 
-                        className={`btn btn-sm ${selectedQueryKey === 'customers' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        className={`btn btn-sm ${selectedQueryKey === 'customers' ? 'btn-primary' : 'btn-outline-secondary'}`}
                         onClick={() => setSelectedQueryKey('customers')}
                       >
                         Banking SQL
                       </button>
                       <button 
-                        className={`btn btn-sm ${selectedQueryKey === 'attrition' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        className={`btn btn-sm ${selectedQueryKey === 'attrition' ? 'btn-primary' : 'btn-outline-secondary'}`}
                         onClick={() => setSelectedQueryKey('attrition')}
                       >
                         HR Attrition
                       </button>
                       <button 
-                        className={`btn btn-sm ${selectedQueryKey === 'hospital' ? 'btn-success' : 'btn-outline-secondary'}`}
+                        className={`btn btn-sm ${selectedQueryKey === 'hospital' ? 'btn-primary' : 'btn-outline-secondary'}`}
                         onClick={() => setSelectedQueryKey('hospital')}
                       >
                         Hospital LOS
@@ -1034,14 +1026,14 @@
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-3 bg-black text-light font-monospace small mb-3 border border-secondary border-opacity-50">
-                    <div className="d-flex justify-content-between align-items-center text-muted mb-2 border-bottom border-secondary pb-1">
+                  <div className="p-3 rounded-3 bg-light text-dark font-monospace small mb-3 border">
+                    <div className="d-flex justify-content-between align-items-center text-muted mb-2 border-bottom pb-1">
                       <span><i className="fa-solid fa-code text-success me-1"></i> SQL Editor ({sqlQueries[selectedQueryKey].title})</span>
                       <button className="btn btn-sm btn-cyan py-0 px-2 fs-7" onClick={handleExecuteSql}>
                         <i className="fa-solid fa-play"></i> Run Query
                       </button>
                     </div>
-                    <pre className="mb-0 text-info" style={{ whiteSpace: "pre-wrap" }}>
+                    <pre className="mb-0 text-primary fw-semibold" style={{ whiteSpace: "pre-wrap" }}>
                       {sqlQueries[selectedQueryKey].sql}
                     </pre>
                   </div>
@@ -1050,16 +1042,16 @@
                     <span>
                       <i className="fa-solid fa-check-double text-success me-1"></i> Query Output: {sqlQueries[selectedQueryKey].rows.length} rows returned
                     </span>
-                    <span className="badge bg-secondary bg-opacity-50 text-light">
+                    <span className="badge bg-light text-dark border">
                       Execution time: {queryRunTime}
                     </span>
                   </div>
 
-                  <div className="table-responsive rounded-3 border border-secondary border-opacity-25">
-                    <table className="table table-dark table-hover mb-0 small">
-                      <thead>
+                  <div className="table-responsive rounded-3 border bg-white">
+                    <table className="table table-hover table-striped mb-0 small">
+                      <thead className="table-light">
                         {selectedQueryKey === 'customers' && (
-                          <tr className="text-muted">
+                          <tr>
                             <th>Customer ID</th>
                             <th>Customer Name</th>
                             <th>Account Type</th>
@@ -1067,7 +1059,7 @@
                           </tr>
                         )}
                         {selectedQueryKey === 'attrition' && (
-                          <tr className="text-muted">
+                          <tr>
                             <th>Department</th>
                             <th>Headcount</th>
                             <th>Left Org</th>
@@ -1076,7 +1068,7 @@
                           </tr>
                         )}
                         {selectedQueryKey === 'hospital' && (
-                          <tr className="text-muted">
+                          <tr>
                             <th>Diagnosis Group</th>
                             <th>Total Inpatients</th>
                             <th>Avg Length of Stay</th>
@@ -1088,26 +1080,26 @@
                         {selectedQueryKey === 'customers' && sqlQueries.customers.rows.map((row, idx) => (
                           <tr key={idx}>
                             <td><code>{row.id}</code></td>
-                            <td className="fw-semibold text-light">{row.name}</td>
-                            <td><span className="badge bg-secondary">{row.type}</span></td>
+                            <td className="fw-semibold text-dark">{row.name}</td>
+                            <td><span className="badge bg-secondary-subtle text-dark border">{row.type}</span></td>
                             <td className="text-end text-success fw-bold">{row.total}</td>
                           </tr>
                         ))}
                         {selectedQueryKey === 'attrition' && sqlQueries.attrition.rows.map((row, idx) => (
                           <tr key={idx}>
-                            <td className="fw-semibold text-light">{row.dept}</td>
+                            <td className="fw-semibold text-dark">{row.dept}</td>
                             <td>{row.total}</td>
                             <td className="text-danger fw-bold">{row.left}</td>
                             <td><span className="badge bg-danger-subtle text-danger border border-danger">{row.rate}</span></td>
-                            <td className="text-end text-info">{row.tenure}</td>
+                            <td className="text-end text-primary fw-semibold">{row.tenure}</td>
                           </tr>
                         ))}
                         {selectedQueryKey === 'hospital' && sqlQueries.hospital.rows.map((row, idx) => (
                           <tr key={idx}>
-                            <td className="fw-semibold text-light">{row.group}</td>
+                            <td className="fw-semibold text-dark">{row.group}</td>
                             <td>{row.admissions}</td>
                             <td><span className="badge bg-primary-subtle text-primary border border-primary">{row.los}</span></td>
-                            <td className="text-end text-success">{row.bill}</td>
+                            <td className="text-end text-success fw-bold">{row.bill}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -1128,7 +1120,7 @@
           <div className="container">
             <div className="text-center mb-5">
               <span className="section-tag">Technical Competencies</span>
-              <h2 className="section-title">Technical <span className="text-gradient-cyan">Skill Matrix</span></h2>
+              <h2 className="section-title">Technical <span className="text-gradient-blue">Skill Matrix</span></h2>
               <p className="section-desc">
                 Hands-on technical strengths categorized directly from my professional resume, 
                 covering data querying, transformation, dashboard visualization, and machine learning.
@@ -1143,7 +1135,7 @@
                       <i className={cat.icon}></i>
                     </div>
 
-                    <h4 className="fs-5 fw-bold mb-3">{cat.category}</h4>
+                    <h4 className="fs-5 fw-bold mb-3 text-dark">{cat.category}</h4>
 
                     <div className="d-flex flex-wrap">
                       {cat.skills.map((s, sIdx) => (
@@ -1169,7 +1161,7 @@
           <div className="container">
             <div className="text-center mb-5">
               <span className="section-tag">Academic Background</span>
-              <h2 className="section-title">Education & <span className="text-gradient-cyan">Credentials</span></h2>
+              <h2 className="section-title">Education & <span className="text-gradient-blue">Credentials</span></h2>
               <p className="section-desc">
                 Engineering foundation in Computer Science along with consistent academic excellence.
               </p>
@@ -1186,8 +1178,8 @@
                       </span>
                     </div>
 
-                    <h4 className="fs-5 fw-bold mb-1">{item.degree}</h4>
-                    <div className="text-info fw-semibold small mb-2">
+                    <h4 className="fs-5 fw-bold mb-1 text-dark">{item.degree}</h4>
+                    <div className="text-primary fw-semibold small mb-2">
                       <i className="fa-solid fa-graduation-cap me-1"></i> {item.institution}
                     </div>
 
@@ -1229,7 +1221,7 @@
           <div className="container">
             <div className="text-center mb-5">
               <span className="section-tag">Get In Touch</span>
-              <h2 className="section-title">Schedule an <span className="text-gradient-cyan">Interview</span></h2>
+              <h2 className="section-title">Schedule an <span className="text-gradient-blue">Interview</span></h2>
               <p className="section-desc">
                 Looking for a proactive, results-oriented Data Analyst to turn raw datasets into high-value dashboards? 
                 Reach out directly or send an interview invitation.
@@ -1239,62 +1231,62 @@
             <div className="row gy-5">
               {/* Direct Contacts */}
               <div className="col-lg-5">
-                <h4 className="fw-bold mb-4">Direct Contact Channels</h4>
+                <h4 className="fw-bold mb-4 text-dark">Direct Contact Channels</h4>
 
-                <a href={`mailto:${CANDIDATE_INFO.email}`} className="glass-card contact-link-card">
+                <a href={`mailto:${CANDIDATE_INFO.email}`} className="contact-link-card">
                   <div className="contact-link-icon">
                     <i className="fa-solid fa-envelope"></i>
                   </div>
                   <div>
                     <div className="text-muted small text-uppercase fw-bold">Email Address</div>
-                    <div className="fw-semibold">{CANDIDATE_INFO.email}</div>
+                    <div className="fw-semibold text-dark">{CANDIDATE_INFO.email}</div>
                   </div>
                 </a>
 
-                <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="glass-card contact-link-card">
+                <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="contact-link-card">
                   <div className="contact-link-icon">
                     <i className="fa-solid fa-phone"></i>
                   </div>
                   <div>
                     <div className="text-muted small text-uppercase fw-bold">Phone / WhatsApp</div>
-                    <div className="fw-semibold">{CANDIDATE_INFO.phone}</div>
+                    <div className="fw-semibold text-dark">{CANDIDATE_INFO.phone}</div>
                   </div>
                 </a>
 
-                <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="glass-card contact-link-card">
+                <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="contact-link-card">
                   <div className="contact-link-icon">
                     <i className="fa-brands fa-github"></i>
                   </div>
                   <div>
                     <div className="text-muted small text-uppercase fw-bold">GitHub Profile</div>
-                    <div className="fw-semibold">github.com/maveenganthirajan-arch</div>
+                    <div className="fw-semibold text-dark">github.com/maveenganthirajan-arch</div>
                   </div>
                 </a>
 
-                <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="glass-card contact-link-card">
+                <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="contact-link-card">
                   <div className="contact-link-icon">
                     <i className="fa-solid fa-code"></i>
                   </div>
                   <div>
                     <div className="text-muted small text-uppercase fw-bold">LeetCode Profile</div>
-                    <div className="fw-semibold">leetcode.com/u/gqSuIZqIeW</div>
+                    <div className="fw-semibold text-dark">leetcode.com/u/gqSuIZqIeW</div>
                   </div>
                 </a>
 
-                <div className="glass-card contact-link-card">
+                <div className="contact-link-card">
                   <div className="contact-link-icon">
                     <i className="fa-solid fa-location-dot"></i>
                   </div>
                   <div>
                     <div className="text-muted small text-uppercase fw-bold">Location</div>
-                    <div className="fw-semibold">{CANDIDATE_INFO.location}</div>
+                    <div className="fw-semibold text-dark">{CANDIDATE_INFO.location}</div>
                   </div>
                 </div>
 
                 {/* Direct Download Card */}
-                <div className="mt-4 p-4 rounded-4 bg-primary bg-opacity-10 border border-primary-subtle text-center">
-                  <h6 className="fw-bold mb-2">Need a copy of my resume?</h6>
-                  <p className="text-muted small mb-3">Download the full verified resume in PDF format.</p>
+                <div className="mt-4 p-4 rounded-4 bg-primary-subtle border border-primary-subtle text-center">
+                  <h6 className="fw-bold text-dark mb-2">Need a verified copy of my resume?</h6>
+                  <p className="text-muted small mb-3">Download the full resume in PDF format.</p>
                   <a href={CANDIDATE_INFO.resumePdf} target="_blank" rel="noreferrer" className="btn btn-cyan btn-sm">
                     <i className="fa-solid fa-file-pdf"></i> Download Resume (PDF)
                   </a>
@@ -1304,7 +1296,7 @@
               {/* Form */}
               <div className="col-lg-7">
                 <div className="glass-card p-4 p-md-5">
-                  <h4 className="fw-bold mb-3">Send Interview Invitation</h4>
+                  <h4 className="fw-bold mb-3 text-dark">Send Interview Invitation</h4>
                   <p className="text-muted small mb-4">
                     Fill out the form below to initiate an email conversation directly with Maveen G.
                   </p>
@@ -1323,7 +1315,7 @@
                       </a>
                       <br/>
                       <button 
-                        className="btn btn-link text-info small" 
+                        className="btn btn-link text-primary small" 
                         onClick={() => setSubmitted(false)}
                       >
                         Edit Information
@@ -1406,27 +1398,27 @@
       );
     }
 
-    // --- COMPONENT: MODAL DETAIL ---
+    // --- COMPONENT: MODAL DETAIL (Light Mode) ---
     function ProjectDetailModal({ project, onClose }) {
       if (!project) return null;
 
       return (
-        <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.75)', zIndex: 1050 }}>
+        <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(15, 23, 42, 0.65)', zIndex: 1050 }}>
           <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div className="modal-content modal-content-custom">
-              <div className="modal-header border-secondary border-opacity-25 pb-3">
+              <div className="modal-header border-bottom pb-3">
                 <div>
-                  <span className="badge bg-info-subtle text-cyan border border-info mb-1">
+                  <span className="badge bg-primary-subtle text-primary border border-primary-subtle mb-1">
                     {project.domain} • {project.category}
                   </span>
-                  <h4 className="modal-title fw-bold text-white mb-0">{project.title}</h4>
+                  <h4 className="modal-title fw-bold text-dark mb-0">{project.title}</h4>
                 </div>
-                <button type="button" className="btn-close btn-close-white" onClick={onClose}></button>
+                <button type="button" className="btn-close" onClick={onClose}></button>
               </div>
 
               <div className="modal-body py-4">
                 <div className="mb-4">
-                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">Technologies & Tools</h6>
+                  <h6 className="fw-bold text-primary text-uppercase small letter-spacing-1">Technologies & Tools</h6>
                   <div className="d-flex flex-wrap gap-1 mt-2">
                     {project.tech.map((t, idx) => (
                       <span key={idx} className="tech-tag-badge">
@@ -1437,43 +1429,43 @@
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                  <h6 className="fw-bold text-primary text-uppercase small letter-spacing-1">
                     <i className="fa-solid fa-triangle-exclamation me-1"></i> Business Problem Statement
                   </h6>
-                  <p className="text-light opacity-90 small">
+                  <p className="text-body small">
                     {project.deepDive.problem}
                   </p>
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                  <h6 className="fw-bold text-primary text-uppercase small letter-spacing-1">
                     <i className="fa-solid fa-gears me-1"></i> Analytical Methodology & Execution
                   </h6>
-                  <p className="text-light opacity-90 small">
+                  <p className="text-body small">
                     {project.deepDive.methodology}
                   </p>
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1">
+                  <h6 className="fw-bold text-primary text-uppercase small letter-spacing-1">
                     <i className="fa-solid fa-box-archive me-1"></i> Core Deliverables
                   </h6>
-                  <p className="text-light opacity-90 small">
+                  <p className="text-body small">
                     {project.deepDive.deliverables}
                   </p>
                 </div>
 
-                <div className="p-3 rounded-3 bg-success bg-opacity-10 border border-success border-opacity-25 mb-3">
+                <div className="p-3 rounded-3 bg-success-subtle border border-success-subtle mb-3">
                   <h6 className="fw-bold text-success text-uppercase small letter-spacing-1 mb-1">
                     <i className="fa-solid fa-chart-line me-1"></i> Measurable Business Impact
                   </h6>
-                  <p className="text-light opacity-90 small mb-0">
+                  <p className="text-dark small mb-0">
                     {project.deepDive.impact}
                   </p>
                 </div>
 
                 <div>
-                  <h6 className="fw-bold text-info text-uppercase small letter-spacing-1 mb-2">Resume Key Bullets</h6>
+                  <h6 className="fw-bold text-primary text-uppercase small letter-spacing-1 mb-2">Resume Key Bullets</h6>
                   {project.highlights.map((bullet, idx) => (
                     <div key={idx} className="project-bullet small">
                       {bullet}
@@ -1482,7 +1474,7 @@
                 </div>
               </div>
 
-              <div className="modal-footer border-secondary border-opacity-25">
+              <div className="modal-footer border-top">
                 <a href={project.github} target="_blank" rel="noreferrer" className="btn btn-outline-glass">
                   <i className="fa-brands fa-github"></i> Repository
                 </a>
@@ -1502,21 +1494,21 @@
         <footer>
           <div className="container text-center">
             <div className="d-flex justify-content-center gap-3 mb-3">
-              <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-muted hover-cyan">
+              <a href={CANDIDATE_INFO.github} target="_blank" rel="noreferrer" className="text-secondary hover-cyan">
                 <i className="fa-brands fa-github fs-5"></i>
               </a>
-              <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-muted hover-cyan">
+              <a href={CANDIDATE_INFO.leetcode} target="_blank" rel="noreferrer" className="text-secondary hover-cyan">
                 <i className="fa-solid fa-code fs-5"></i>
               </a>
-              <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-muted hover-cyan">
+              <a href={`mailto:${CANDIDATE_INFO.email}`} className="text-secondary hover-cyan">
                 <i className="fa-solid fa-envelope fs-5"></i>
               </a>
-              <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-muted hover-cyan">
+              <a href={`tel:${CANDIDATE_INFO.phoneClean}`} className="text-secondary hover-cyan">
                 <i className="fa-solid fa-phone fs-5"></i>
               </a>
             </div>
-            <p className="mb-1">
-              Crafted with <strong className="text-info">React JS & Bootstrap 5</strong> for <strong>Maveen G</strong> | Data Analyst & BI Specialist
+            <p className="mb-1 text-dark">
+              Crafted with <strong className="text-primary">React JS & Bootstrap 5</strong> for <strong>Maveen G</strong> | Data Analyst & BI Specialist
             </p>
             <p className="small text-muted mb-0">
               Salem, Tamil Nadu, India • B.E. Computer Science and Engineering (Kongu Engineering College)
@@ -1528,15 +1520,8 @@
 
     // --- MAIN APP ROOT ---
     function App() {
-      const [theme, setTheme] = useState("dark");
       const [activeModalProject, setActiveModalProject] = useState(null);
       const [showScrollTop, setShowScrollTop] = useState(false);
-
-      const toggleTheme = () => {
-        const nextTheme = theme === "dark" ? "light" : "dark";
-        setTheme(nextTheme);
-        document.documentElement.setAttribute("data-theme", nextTheme);
-      };
 
       useEffect(() => {
         const checkScroll = () => {
@@ -1552,7 +1537,7 @@
 
       return (
         <div>
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          <Navbar />
           <Hero />
           <MetricsRibbon />
           <AboutSection />
